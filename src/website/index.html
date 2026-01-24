@@ -17,12 +17,12 @@
    <link rel=apple-touch-icon href=https://dna-engine.org/graphics/mobile-home-screen.png>
    <link rel=preconnect       href=https://fonts.googleapis.com>
    <link rel=preconnect       href=https://fonts.gstatic.com crossorigin>
-   <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1/css/all.min.css>
-   <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/dna-engine@3.3/dist/dna-engine.css>
-   <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/web-ignition@2.4/dist/reset.min.css>
+   <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@{{package.devDependencies.-fortawesome-fontawesome-free|version}}/css/all.min.css>
+   <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/web-ignition@{{package.devDependencies.web-ignition|version}}/dist/reset.min.css>
+   <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/dna-engine@{{package.version|minor-version}}/dist/dna-engine.css>
    <link rel=stylesheet       href=https://dna-engine.org/style.css>
    <style>
-      body                    { text-align: center; padding: 20px 140px; }
+      body                    { text-align: center; color: dimgray; padding: 20px 140px; }
       body >header figure     { display: inline-block; max-width: 200px; }
       body >header figure img { border: none; }
       body >main >nav         { margin-bottom: 30px; }
@@ -30,9 +30,9 @@
       body >main >p a         { font-size: 1.4rem; }
       @media (max-width: 667px) { body { padding: 10px; } }
    </style>
-   <script defer src=https://cdn.jsdelivr.net/npm/dna-engine@3.3/dist/dna-engine.min.js></script>
-   <script defer src=https://cdn.jsdelivr.net/npm/fetch-json@3.3/dist/fetch-json.min.js></script>
-   <script defer src=https://cdn.jsdelivr.net/npm/web-ignition@2.4/dist/lib-x.min.js></script>
+   <script defer src=https://cdn.jsdelivr.net/npm/web-ignition@{{package.devDependencies.web-ignition|version}}/dist/lib-x.min.js></script>
+   <script defer src=https://cdn.jsdelivr.net/npm/dna-engine@{{package.version|minor-version}}/dist/dna-engine.min.js></script>
+   <script defer src=https://cdn.jsdelivr.net/npm/fetch-json@{{package.devDependencies.fetch-json|version}}/dist/fetch-json.min.js></script>
    <script data-on-load=showVersion>
       const showVersion = () =>
          globalThis.document.getElementById('version-number').textContent = dna.version;
@@ -51,9 +51,14 @@
 
 <main>
    <nav>
-      <a href=https://github.com/dna-engine/dna-engine/blob/main/LICENSE.txt><img src=https://img.shields.io/badge/License-MIT-blue.svg alt=license></a>
-      <a href=https://www.npmjs.com/package/dna-engine><img src=https://img.shields.io/npm/v/dna-engine.svg alt=npm></a>
-      <a href=https://www.jsdelivr.com/package/npm/dna-engine><img src=https://data.jsdelivr.com/v1/package/npm/dna-engine/badge alt=downloads></a>
+      <a href=https://github.com/dna-engine/dna-engine/blob/main/LICENSE.txt>
+         <img src=https://img.shields.io/badge/License-MIT-blue.svg alt=license></a>
+      <a href=https://www.npmjs.com/package/dna-engine>
+         <img src=https://img.shields.io/npm/v/dna-engine.svg alt=npm></a>
+      <a href=https://www.jsdelivr.com/package/npm/dna-engine>
+         <img src=https://data.jsdelivr.com/v1/package/npm/dna-engine/badge alt=downloads></a>
+      <a href=https://github.com/dna-engine/dna-engine/actions/workflows/run-spec-on-push.yaml>
+         <img src=https://github.com/dna-engine/dna-engine/actions/workflows/run-spec-on-push.yaml/badge.svg alt=build></a>
    </nav>
    <b>Project:</b>
    <p>

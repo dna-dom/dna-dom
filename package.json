@@ -87,18 +87,22 @@
       ],
       "lint": [
          "jshint . --exclude-path .gitignore",
-         "eslint --max-warnings 0",
-         "html-validator spec"
+         "eslint --max-warnings 0"
       ],
       "build": [
          "tsc",
          "copy-file src/dna-engine.css           --folder build",
          "copy-file website/static/panel-nav.css --folder build"
       ],
-      "publish": [
+      "dist": [
          "esm-to-plain-js build/dna-engine.js       build/dna-engine.dev.js",
          "uglifyjs build/dna-engine.dev.js --output build/dna-engine.min.js",
          "add-dist-header build dist"
+      ],
+      "publish": [
+         "replacer src/website                           docs",
+         "replacer --virtual-input . --rename=robots.txt docs --content=#{{space}}Allow{{space}}bots",
+         "replacer --virtual-input . --rename=CNAME      docs --content=dna.js.org"
       ],
       "dev": [
          "tsc --watch --preserveWatchOutput",
@@ -126,11 +130,11 @@
       ]
    },
    "scripts": {
-      "pretest": "run-scripts clean minimize-visual lint build publish",
+      "pretest": "run-scripts clean minimize-visual lint build dist publish",
       "test": "mocha spec/*.spec.js",
       "dev": "npm test && run-scripts dev --parallel",
       "build-website": "run-scripts minimize-visual web web-dev web-publish",
-      "validate-website": "html-validator website-target/3-prod",
+      "validate-html": "html-validator --default-rules spec docs website-target/3-prod",
       "interactive": "browser-sync . --startPath website-target/2-dev --files website-target/2-dev"
    },
    "devDependencies": {
@@ -148,7 +152,7 @@
       "fetch-json": "~3.3",
       "highlight.js": "~11.11",
       "hljs-enhance": "~2.0",
-      "jsdom": "~27.3",
+      "jsdom": "~27.4",
       "jshint": "~2.13",
       "mocha": "~11.7",
       "replacer-util": "~1.5",
@@ -157,9 +161,9 @@
       "run-scripts-util": "~1.3",
       "serve": "~14.2",
       "typescript": "~5.9",
-      "typescript-eslint": "~8.50",
+      "typescript-eslint": "~8.53",
       "uglify-js": "~3.19",
-      "w3c-html-validator": "~2.0",
-      "web-ignition": "~2.4"
+      "w3c-html-validator": "~2.2",
+      "web-ignition": "~2.5"
    }
 }

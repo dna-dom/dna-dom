@@ -1,0 +1,32 @@
+# dna-engine
+# Deploy "docs" folder to GitHub Pages
+
+name: Publish Website
+
+on: [workflow_dispatch]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6               #see: https://github.com/actions/checkout/releases
+      - uses: actions/setup-node@v6             #see: https://github.com/actions/setup-node/releases
+      - run: npm install
+      - run: npm run pretest  #build website
+      - uses: actions/upload-pages-artifact@v4  #see: https://github.com/actions/upload-pages-artifact/releases
+        with:
+          path: docs  #build output folder
+
+  publish:
+    needs: build
+    permissions:  #allow GITHUB_TOKEN to deploy to GitHub Pages
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{steps.deployment.outputs.page_url}}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/deploy-pages@v4           #see: https://github.com/actions/deploy-pages/releases
+        id: deployment
