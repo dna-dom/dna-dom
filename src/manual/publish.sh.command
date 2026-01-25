@@ -1,14 +1,15 @@
 #!/bin/bash
 ##########################
-# dna-engine Website     #
+# dna-engine             #
+# Publish Manual         #
 # https://dna-engine.org #
 ##########################
 
 # To make this file runnable:
 #     $ chmod +x *.sh.command
 
-banner="dna-engine.org Website"
-projectHome=$(cd $(dirname $0)/..; pwd)
+banner="Publish Manual --> dna-engine.org"
+projectHome=$(cd $(dirname $0)/../..; pwd)
 pkgInstallHome=$(dirname $(dirname $(which httpd)))
 apacheCfg=$pkgInstallHome/etc/httpd
 apacheLog=$pkgInstallHome/var/log/httpd/error_log
@@ -29,9 +30,9 @@ buildHtmlFiles() {
    cd $projectHome
    echo "Tasks:"
    folderListing="$projectHome/../^gists/folder-listing.php/folder-listing.php"
-   test -f $folderListing && cp $folderListing $projectHome/website/static/api/index.php
-   npm run build-website
-   npm run validate-website
+   test -f $folderListing && cp -v $folderListing src/manual/static/api/index.php
+   npm run build-manual
+   npm run validate-html
    echo
    }
 
@@ -44,7 +45,7 @@ publishWebFiles() {
       echo $publishSite
       rm -rf $publishFolder
       mkdir $publishFolder
-      cp -R website-target/3-prod/* $publishFolder
+      cp -R build/manual/3-prod/* $publishFolder
       ls -o $publishSite | grep dna
       test -x "$(which tree)" && tree $publishFolder
       }

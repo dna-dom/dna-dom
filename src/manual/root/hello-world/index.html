@@ -1,4 +1,4 @@
-{% render 'website/templates/page-begin.html', webRoot: '..', title: 'Hello World Example' %}
+{% render 'src/manual/templates/page-begin.html', webRoot: '..', title: 'Hello World Example' %}
 
 <main>
 
@@ -75,17 +75,17 @@
       <h3>Bookstore on jsFiddle</h3>
       <p>
          Experiment with the code at:
-         <button data-href=https://jsfiddle.net/{{package.websiteInfo.jsFiddle.addABook}} class=external-site>
-            jsfiddle.net/{{package.websiteInfo.jsFiddle.addABook}}
+         <button data-href=https://jsfiddle.net/{{package.manualInfo.jsFiddle.addABook}} class=external-site>
+            jsfiddle.net/{{package.manualInfo.jsFiddle.addABook}}
          </button>
       </p>
    </section>
 
    <section id=comments>
       <h3>Questions and comments</h3>
-      {% render 'website/templates/comments.html' %}
+      {% render 'src/manual/templates/comments.html' %}
    </section>
 
 </main>
 
-{% render 'website/templates/page-end.html' %}
+{% render 'src/manual/templates/page-end.html' %}

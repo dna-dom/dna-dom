@@ -7,6 +7,7 @@ _An uncomplicated user interface library for cloning semantic templates_
 [![npm](https://img.shields.io/npm/v/dna-engine.svg)](https://www.npmjs.com/package/dna-engine)
 [![Hits](https://data.jsdelivr.com/v1/package/npm/dna-engine/badge?style=rounded)](https://www.jsdelivr.com/package/npm/dna-engine)
 [![Build](https://github.com/dna-engine/dna-engine/actions/workflows/run-spec-on-push.yaml/badge.svg)](https://github.com/dna-engine/dna-engine/actions/workflows/run-spec-on-push.yaml)
+[![Publish Website](https://github.com/dna-engine/dna-engine/actions/workflows/publish-website.yaml/badge.svg)](https://github.com/dna-engine/dna-engine/actions/workflows/publish-website.yaml)
 
 dna-engine is a lightweight easy-to-use UI library enabling developers to rapidly build maintainable
 JavaScript applications.
@@ -32,7 +33,7 @@ Then call the `dna.clone()` function to insert a copy of the template into the D
 The supplied JSON data object populates the fields of the template.
 
 ### 2. JavaScript call to add book node
-```js
+```javascript
 dna.clone('book', { title: 'The DOM', author: 'Jan' });
 ```
 

@@ -54,7 +54,7 @@
          "dna": true
       }
    },
-   "websiteInfo": {
+   "manualInfo": {
       "gzipSize": "9 kb gzip",
       "jsFiddle": {
          "addABook": "12nrev6j",
@@ -80,7 +80,7 @@
    },
    "runScriptsConfig": {
       "clean": [
-         "rimraf build dist"
+         "rimraf build dist docs"
       ],
       "minimize-visual": [
          "replacer spec/visual.html spec --rename=visual.min.html --find=dist/dna-engine.dev.js --replacement=dist/dna-engine.min.js"
@@ -92,7 +92,7 @@
       "build": [
          "tsc",
          "copy-file src/dna-engine.css           --folder build",
-         "copy-file website/static/panel-nav.css --folder build"
+         "copy-file src/manual/static/panel-nav.css --folder build"
       ],
       "dist": [
          "esm-to-plain-js build/dna-engine.js       build/dna-engine.dev.js",
@@ -109,33 +109,27 @@
          "chokidar 'build/dna-engine.js' --command 'run-scripts publish'",
          "browser-sync . --directory --startPath spec/visual.html --files dist spec"
       ],
-      "web": [
-         "rimraf website-target",
-         "copy-folder website/static website-target/1-stage",
-         "replacer website/static    website-target/1-stage --ext=.html",
-         "replacer website/root      website-target/1-stage --ext=.html",
-         "replacer spec --ext=.html  website-target/1-stage/spec --find=../dist/ --replacement={{macro:cdn-url}}"
-      ],
-      "web-dev": [
-         "copy-folder website-target/1-stage website-target/2-dev",
-         "replacer    website-target/1-stage website-target/2-dev --ext=.html '--regex=/https:.*dna-engine.min.js/m' --replacement={{macro:js-uri}}"
-      ],
-      "web-publish": [
-         "copy-file      website-target/1-stage/project.html docs/index.html",
-         "rev-web-assets website-target/1-stage --manifest --skip=social-media             website-target/3-prod --meta-content-base=https://dna-engine.org",
-         "copy-file      website/static/assets/bookmark-icon.png                  --folder website-target/3-prod/graphics",
-         "copy-file      website/static/assets/dna-logo.png                       --folder website-target/3-prod/graphics",
-         "copy-file      website/static/assets/mobile-home-screen.png             --folder website-target/3-prod/graphics",
-         "copy-file      website/static/assets/social-media/sample-book-cover.jpg --folder website-target/3-prod/graphics"
+      "build-manual": [
+         "copy-folder src/manual/static             build/manual/1-stage",
+         "replacer    src/manual/static --ext=.html build/manual/1-stage",
+         "replacer    src/manual/root   --ext=.html build/manual/1-stage",
+         "replacer    spec              --ext=.html build/manual/1-stage/spec --find=../dist/ --replacement={{macro:cdn-url}}",
+         "copy-folder build/manual/1-stage build/manual/2-dev",
+         "replacer    build/manual/1-stage build/manual/2-dev --ext=.html '--regex=/https:.*dna-engine.min.js/m' --replacement={{macro:js-uri}}",
+         "rev-web-assets build/manual/1-stage --manifest --skip=social-media                  build/manual/3-prod --meta-content-base=https://dna-engine.org",
+         "copy-file      src/manual/static/assets/bookmark-icon.png                  --folder build/manual/3-prod/graphics",
+         "copy-file      src/manual/static/assets/dna-logo.png                       --folder build/manual/3-prod/graphics",
+         "copy-file      src/manual/static/assets/mobile-home-screen.png             --folder build/manual/3-prod/graphics",
+         "copy-file      src/manual/static/assets/social-media/sample-book-cover.jpg --folder build/manual/3-prod/graphics"
       ]
    },
    "scripts": {
       "pretest": "run-scripts clean minimize-visual lint build dist publish",
       "test": "mocha spec/*.spec.js",
       "dev": "npm test && run-scripts dev --parallel",
-      "build-website": "run-scripts minimize-visual web web-dev web-publish",
-      "validate-html": "html-validator --default-rules spec docs website-target/3-prod",
-      "interactive": "browser-sync . --startPath website-target/2-dev --files website-target/2-dev"
+      "build-manual": "npm run pretest && run-scripts build-manual",
+      "interactive": "browser-sync . --startPath build/manual/2-dev --files build/manual/2-dev",
+      "validate-html": "html-validator --default-rules spec docs build/manual/3-prod"
    },
    "devDependencies": {
       "@eslint/js": "~9.39",

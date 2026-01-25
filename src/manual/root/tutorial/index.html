@@ -1,4 +1,4 @@
-{% render 'website/templates/page-begin.html', webRoot: '..', title: 'Book Finder Tutorial' %}
+{% render 'src/manual/templates/page-begin.html', webRoot: '..', title: 'Book Finder Tutorial' %}
 
 <main class=docs-page>
 
@@ -23,7 +23,7 @@
       <br>
       <aside style="width: 240px;">
          <figure class=video-container-link>
-            <iframe src=https://www.youtube.com/embed/{{package.websiteInfo.youTube.tutorial}} allow=fullscreen></iframe>
+            <iframe src=https://www.youtube.com/embed/{{package.manualInfo.youTube.tutorial}} allow=fullscreen></iframe>
             <figcaption>dna-engine tutorial</figcaption>
          </figure>
       </aside>
@@ -453,9 +453,9 @@
          </span>
       </p>
       <h4>Questions and comments</h4>
-      {% render 'website/templates/comments.html' %}
+      {% render 'src/manual/templates/comments.html' %}
    </section>
 
 </main>
 
-{% render 'website/templates/page-end.html' %}
+{% render 'src/manual/templates/page-end.html' %}

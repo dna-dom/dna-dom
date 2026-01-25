@@ -4,7 +4,7 @@
 /node_modules/
 /package-lock.json
 /build/
-/website-target/
+/docs/
 /spec/visual.min.html
 
 # Extraneous System Files

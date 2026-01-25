@@ -1,4 +1,4 @@
-{% render 'website/templates/page-begin.html', webRoot: '..', title: 'Documentation' %}
+{% render 'src/manual/templates/page-begin.html', webRoot: '..', title: 'Documentation' %}
 
 <main class=docs-page>
 
@@ -17,7 +17,8 @@
       </p>
       <aside>
          <figure class=video-container-link>
-            <iframe src=https://www.youtube.com/embed/{{package.websiteInfo.youTube.intro}} allow=fullscreen></iframe>
+            <iframe src=https://www.youtube.com/embed/{{package.manualInfo.youTube.intro}}
+               allow=fullscreen></iframe>
             <figcaption>Introduction to dna-engine</figcaption>
          </figure>
       </aside>
@@ -1054,19 +1055,19 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/name.html' %}
-            {% render 'website/templates/params/data.html' %}
+            {% render 'src/manual/templates/params/name.html' %}
+            {% render 'src/manual/templates/params/data.html' %}
             <li>
                <label><b>options</b> (Object) <i>[optional]</i>:</label>
                <ul>
-                  {% render 'website/templates/options/fade.html',      default: false %}
-                  {% render 'website/templates/options/top.html',       default: false %}
-                  {% render 'website/templates/options/clones.html',    default: 1 %}
-                  {% render 'website/templates/options/html.html',      default: false %}
-                  {% render 'website/templates/options/empty.html',     default: false %}
-                  {% render 'website/templates/options/holder.html',    default: 'null' %}
-                  {% render 'website/templates/options/transform.html', default: 'null' %}
-                  {% render 'website/templates/options/callback.html',  default: 'null' %}
+                  {% render 'src/manual/templates/options/fade.html',      default: false %}
+                  {% render 'src/manual/templates/options/top.html',       default: false %}
+                  {% render 'src/manual/templates/options/clones.html',    default: 1 %}
+                  {% render 'src/manual/templates/options/html.html',      default: false %}
+                  {% render 'src/manual/templates/options/empty.html',     default: false %}
+                  {% render 'src/manual/templates/options/holder.html',    default: 'null' %}
+                  {% render 'src/manual/templates/options/transform.html', default: 'null' %}
+                  {% render 'src/manual/templates/options/callback.html',  default: 'null' %}
                </ul>
             </li>
          </ul>
@@ -1089,11 +1090,11 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/elem.html' %}
+            {% render 'src/manual/templates/params/elem.html' %}
             <li>
                <label><b>options</b> (Object) <i>[optional]</i>:</label>
                <ul>
-                  {% render 'website/templates/options/main.html', default: false %}
+                  {% render 'src/manual/templates/options/main.html', default: false %}
                </ul>
             </li>
          </ul>
@@ -1146,11 +1147,11 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/clone.html' %}
+            {% render 'src/manual/templates/params/clone.html' %}
             <li>
                <label><b>options</b> (Object) <i>[optional]</i>:</label>
                <ul>
-                  {% render 'website/templates/options/main.html', default: false %}
+                  {% render 'src/manual/templates/options/main.html', default: false %}
                </ul>
             </li>
          </ul>
@@ -1182,13 +1183,13 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/clone.html' %}
+            {% render 'src/manual/templates/params/clone.html' %}
             <li>
                <label><b>options</b> (Object) <i>[optional]</i>:</label>
                <ul>
-                  {% render 'website/templates/options/data.html', default: 'null' %}
-                  {% render 'website/templates/options/main.html', default: false %}
-                  {% render 'website/templates/options/html.html', default: false %}
+                  {% render 'src/manual/templates/options/data.html', default: 'null' %}
+                  {% render 'src/manual/templates/options/main.html', default: false %}
+                  {% render 'src/manual/templates/options/html.html', default: false %}
                </ul>
             </li>
          </ul>
@@ -1221,15 +1222,15 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/name.html' %}
-            {% render 'website/templates/params/data.html' %}
+            {% render 'src/manual/templates/params/name.html' %}
+            {% render 'src/manual/templates/params/data.html' %}
             <li>
                <label><b>options</b> (Object) <i>[optional]</i>:</label>
                <ul>
-                  {% render 'website/templates/options/fade.html',      default: ???????? %}
-                  {% render 'website/templates/options/html.html',      default: false  %}
-                  {% render 'website/templates/options/transform.html', default: 'null' %}
-                  {% render 'website/templates/options/callback.html',  default: 'null' %}
+                  {% render 'src/manual/templates/options/fade.html',      default: ???????? %}
+                  {% render 'src/manual/templates/options/html.html',      default: false  %}
+                  {% render 'src/manual/templates/options/transform.html', default: 'null' %}
+                  {% render 'src/manual/templates/options/callback.html',  default: 'null' %}
                </ul>
             </li>
          </ul>
@@ -1273,14 +1274,14 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/holder-clone.html' %}
-            {% render 'website/templates/params/array-field.html' %}
-            {% render 'website/templates/params/data.html' %}
+            {% render 'src/manual/templates/params/holder-clone.html' %}
+            {% render 'src/manual/templates/params/array-field.html' %}
+            {% render 'src/manual/templates/params/data.html' %}
             <li>
                <label><b>options</b> (Object) <i>[optional]</i>:</label>
                <ul>
-                  {% render 'website/templates/options/fade.html', default: false %}
-                  {% render 'website/templates/options/top.html',  default: false %}
+                  {% render 'src/manual/templates/options/fade.html', default: false %}
+                  {% render 'src/manual/templates/options/top.html',  default: false %}
                </ul>
             </li>
          </ul>
@@ -1308,9 +1309,9 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/name.html' %}
-            {% render 'website/templates/params/html.html' %}
-            {% render 'website/templates/params/holder.html' %}
+            {% render 'src/manual/templates/params/name.html' %}
+            {% render 'src/manual/templates/params/html.html' %}
+            {% render 'src/manual/templates/params/holder.html' %}
          </ul>
       </div>
       <figure>
@@ -1351,7 +1352,7 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/name.html' %}
+            {% render 'src/manual/templates/params/name.html' %}
          </ul>
       </div>
       <figure>
@@ -1372,11 +1373,11 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/name.html' %}
+            {% render 'src/manual/templates/params/name.html' %}
             <li>
                <label><b>options</b> (Object) <i>[optional]</i>:</label>
                <ul>
-                  {% render 'website/templates/options/fade.html', default: false %}
+                  {% render 'src/manual/templates/options/fade.html', default: false %}
                </ul>
             </li>
          </ul>
@@ -1402,13 +1403,13 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/name.html' %}
+            {% render 'src/manual/templates/params/name.html' %}
             <li>
                <label><b>options</b> (Object) <i>[optional]</i>:</label>
                <ul>
-                  {% render 'website/templates/options/data.html', default: ????? %}
-                  {% render 'website/templates/options/main.html', default: false %}
-                  {% render 'website/templates/options/html.html', default: false %}
+                  {% render 'src/manual/templates/options/data.html', default: ????? %}
+                  {% render 'src/manual/templates/options/main.html', default: false %}
+                  {% render 'src/manual/templates/options/html.html', default: false %}
                </ul>
             </li>
          </ul>
@@ -1439,11 +1440,11 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/clone.html' %}
+            {% render 'src/manual/templates/params/clone.html' %}
             <li>
                <label><b>options</b> (Object) <i>[optional]</i>:</label>
                <ul>
-                  {% render 'website/templates/options/html.html', default: false %}
+                  {% render 'src/manual/templates/options/html.html', default: false %}
                </ul>
             </li>
          </ul>
@@ -1472,13 +1473,13 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/clone.html' %}
+            {% render 'src/manual/templates/params/clone.html' %}
             <li>
                <label><b>options</b> (Object) <i>[optional]</i>:</label>
                <ul>
-                  {% render 'website/templates/options/fade.html',     default: false %}
-                  {% render 'website/templates/options/main.html',     default: false %}
-                  {% render 'website/templates/options/callback.html', default: 'null' %}
+                  {% render 'src/manual/templates/options/fade.html',     default: false %}
+                  {% render 'src/manual/templates/options/main.html',     default: false %}
+                  {% render 'src/manual/templates/options/callback.html', default: 'null' %}
                </ul>
             </li>
          </ul>
@@ -1506,7 +1507,7 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/name.html' %}
+            {% render 'src/manual/templates/params/name.html' %}
          </ul>
       </div>
       <figure>
@@ -1526,11 +1527,11 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/elem.html' %}
+            {% render 'src/manual/templates/params/elem.html' %}
             <li>
                <label><b>options</b> (Object) <i>[optional]</i>:</label>
                <ul>
-                  {% render 'website/templates/options/main.html', default: false %}
+                  {% render 'src/manual/templates/options/main.html', default: false %}
                </ul>
             </li>
          </ul>
@@ -1546,7 +1547,7 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/elem.html' %}
+            {% render 'src/manual/templates/params/elem.html' %}
          </ul>
       </div>
       <figure>
@@ -1574,7 +1575,7 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/elem.html' %}
+            {% render 'src/manual/templates/params/elem.html' %}
          </ul>
       </div>
       <p>
@@ -1593,7 +1594,7 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/elem.html' %}
+            {% render 'src/manual/templates/params/elem.html' %}
          </ul>
       </div>
       <figure>
@@ -1631,13 +1632,13 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/callback.html' %}
+            {% render 'src/manual/templates/params/callback.html' %}
             <li>
                <label><b>options</b> (Object) <i>[optional]</i>:</label>
                <ul>
-                  {% render 'website/templates/options/selector.html',     default: 'null' %}
-                  {% render 'website/templates/options/params.html',       default: undefined %}
-                  {% render 'website/templates/options/on-dom-ready.html', default: true %}
+                  {% render 'src/manual/templates/options/selector.html',     default: 'null' %}
+                  {% render 'src/manual/templates/options/params.html',       default: undefined %}
+                  {% render 'src/manual/templates/options/on-dom-ready.html', default: true %}
                </ul>
             </li>
          </ul>
@@ -2135,16 +2136,16 @@
       <p>
          <em>Note 3:</em>
          Experiment with click events:
-         <button data-href=https://jsfiddle.net/{{package.websiteInfo.jsFiddle.clickEvents}} class=external-site>
-            jsfiddle.net/{{package.websiteInfo.jsFiddle.clickEvents}}
+         <button data-href=https://jsfiddle.net/{{package.manualInfo.jsFiddle.clickEvents}} class=external-site>
+            jsfiddle.net/{{package.manualInfo.jsFiddle.clickEvents}}
          </button>
       </p>
       <p>
          <em>Note 4:</em>
          See how events can be used with <code>FileReader()</code> to make a reusable photo upload
          component:
-         <button data-href=https://jsfiddle.net/{{package.websiteInfo.jsFiddle.photoUpload}} class=external-site>
-            jsfiddle.net/{{package.websiteInfo.jsFiddle.photoUpload}}
+         <button data-href=https://jsfiddle.net/{{package.manualInfo.jsFiddle.photoUpload}} class=external-site>
+            jsfiddle.net/{{package.manualInfo.jsFiddle.photoUpload}}
          </button>
       </p>
    </section>
@@ -2199,8 +2200,8 @@
       <!-- End: Result -->
       <p>
          Experiment with smart update events:
-         <button data-href=https://jsfiddle.net/{{package.websiteInfo.jsFiddle.smartUpdates}} class=external-site>
-            jsfiddle.net/{{package.websiteInfo.jsFiddle.smartUpdates}}
+         <button data-href=https://jsfiddle.net/{{package.manualInfo.jsFiddle.smartUpdates}} class=external-site>
+            jsfiddle.net/{{package.manualInfo.jsFiddle.smartUpdates}}
          </button>
       </p>
       <p>
@@ -2932,8 +2933,8 @@
       <p>
          See how events can be used with <code>FileReader()</code> to make a reusable photo upload
          component:
-         <button data-href=https://jsfiddle.net/{{package.websiteInfo.jsFiddle.photoUpload}} class=external-site>
-            jsfiddle.net/{{package.websiteInfo.jsFiddle.photoUpload}}
+         <button data-href=https://jsfiddle.net/{{package.manualInfo.jsFiddle.photoUpload}} class=external-site>
+            jsfiddle.net/{{package.manualInfo.jsFiddle.photoUpload}}
          </button>
       </p>
    </section>
@@ -3100,14 +3101,14 @@
       <!-- End: Result -->
       <p class=external-site>
          Experiment with button navigation panels:
-         <button data-href=https://jsfiddle.net/{{package.websiteInfo.jsFiddle.panelsClick}}>
-            jsfiddle.net/{{package.websiteInfo.jsFiddle.panelsClick}}
+         <button data-href=https://jsfiddle.net/{{package.manualInfo.jsFiddle.panelsClick}}>
+            jsfiddle.net/{{package.manualInfo.jsFiddle.panelsClick}}
          </button>
       </p>
       <p class=external-site>
          Experiment with drop-down navigation panels:
-         <button data-href=https://jsfiddle.net/{{package.websiteInfo.jsFiddle.panelsDropDown}}>
-            jsfiddle.net/{{package.websiteInfo.jsFiddle.panelsDropDown}}
+         <button data-href=https://jsfiddle.net/{{package.manualInfo.jsFiddle.panelsDropDown}}>
+            jsfiddle.net/{{package.manualInfo.jsFiddle.panelsDropDown}}
          </button>
       </p>
    </section>
@@ -3294,7 +3295,7 @@
       <p class=external-site>
          It's straightforward to style your panel navigation with CSS.&nbsp;
          See the CSS for the examples below:
-         <a href=https://github.com/dna-engine/dna-engine/blob/main/website/static/panel-nav.css>
+         <a href=https://github.com/dna-engine/dna-engine/blob/main/src/manual/static/panel-nav.css>
             <code>panel-nav.css</code>
          </a>
       </p>
@@ -3436,9 +3437,9 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/array-objects.html' %}
-            {% render 'website/templates/params/value.html' %}
-            {% render 'website/templates/params/key.html' %}
+            {% render 'src/manual/templates/params/array-objects.html' %}
+            {% render 'src/manual/templates/params/value.html' %}
+            {% render 'src/manual/templates/params/key.html' %}
          </ul>
       </div>
       <figure>
@@ -3465,8 +3466,8 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/object.html' %}
-            {% render 'website/templates/params/key.html' %}
+            {% render 'src/manual/templates/params/object.html' %}
+            {% render 'src/manual/templates/params/key.html' %}
          </ul>
       </div>
       <figure>
@@ -3493,8 +3494,8 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/array-objects.html' %}
-            {% render 'website/templates/params/key.html' %}
+            {% render 'src/manual/templates/params/array-objects.html' %}
+            {% render 'src/manual/templates/params/key.html' %}
          </ul>
       </div>
       <figure>
@@ -3523,11 +3524,11 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/callback.html' %}
+            {% render 'src/manual/templates/params/callback.html' %}
             <li>
                <label><b>options</b> (Object) <i>[optional]</i>:</label>
                <ul>
-                  {% render 'website/templates/options/quiet.html', default: false %}
+                  {% render 'src/manual/templates/options/quiet.html', default: false %}
                </ul>
             </li>
          </ul>
@@ -3557,7 +3558,7 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/elem.html' %}
+            {% render 'src/manual/templates/params/elem.html' %}
          </ul>
       </div>
       <figure>
@@ -3615,7 +3616,7 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/elem-simple.html' %}
+            {% render 'src/manual/templates/params/elem-simple.html' %}
          </ul>
       </div>
       <figure>
@@ -3638,7 +3639,7 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/elem-simple.html' %}
+            {% render 'src/manual/templates/params/elem-simple.html' %}
          </ul>
       </div>
    </section>
@@ -3653,7 +3654,7 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/elem-simple.html' %}
+            {% render 'src/manual/templates/params/elem-simple.html' %}
          </ul>
       </div>
    </section>
@@ -3668,15 +3669,15 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/elem.html' %}
+            {% render 'src/manual/templates/params/elem.html' %}
             <li>
                <label><b>options</b> (Object) <i>[optional]</i>:</label>
                <ul>
-                  {% render 'website/templates/options/duration.html',     default: 7000 %}
-                  {% render 'website/templates/options/duration-in.html',  default:  600 %}
-                  {% render 'website/templates/options/duration-out.html', default: 3000 %}
-                  {% render 'website/templates/options/no-fade-out.html'   default: false %}
-                  {% render 'website/templates/options/text.html'          default: 'null' %}
+                  {% render 'src/manual/templates/options/duration.html',     default: 7000 %}
+                  {% render 'src/manual/templates/options/duration-in.html',  default:  600 %}
+                  {% render 'src/manual/templates/options/duration-out.html', default: 3000 %}
+                  {% render 'src/manual/templates/options/no-fade-out.html'   default: false %}
+                  {% render 'src/manual/templates/options/text.html'          default: 'null' %}
                </ul>
             </li>
          </ul>
@@ -3705,13 +3706,13 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/elem.html' %}
+            {% render 'src/manual/templates/params/elem.html' %}
          </ul>
       </div>
       <div class=api-return-value>
          Returns:
          <ul>
-            {% render 'website/templates/return-values/elem-promise.html' %}
+            {% render 'src/manual/templates/return-values/elem-promise.html' %}
          </ul>
       </div>
       <figure>
@@ -3738,13 +3739,13 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/callback.html' %}
+            {% render 'src/manual/templates/params/callback.html' %}
             <li>
                <label><b>options</b> (Object) <i>[optional]</i>:</label>
                <ul>
-                  {% render 'website/templates/options/container.html', default: '&lt;body&gt;' %}
-                  {% render 'website/templates/options/overflow.html',  default: true %}
-                  {% render 'website/templates/options/duration.html',  default: 400 %}
+                  {% render 'src/manual/templates/options/container.html', default: '&lt;body&gt;' %}
+                  {% render 'src/manual/templates/options/overflow.html',  default: true %}
+                  {% render 'src/manual/templates/options/duration.html',  default: 400 %}
                </ul>
             </li>
          </ul>
@@ -3752,7 +3753,7 @@
       <div class=api-return-value>
          Returns:
          <ul>
-            {% render 'website/templates/return-values/elem-promise.html' %}
+            {% render 'src/manual/templates/return-values/elem-promise.html' %}
          </ul>
       </div>
       <figure>
@@ -3813,8 +3814,8 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/elem.html' %}
-            {% render 'website/templates/params/up.html' %}
+            {% render 'src/manual/templates/params/elem.html' %}
+            {% render 'src/manual/templates/params/up.html' %}
          </ul>
       </div>
       <figure>
@@ -3846,8 +3847,8 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/func.html' %}
-            {% render 'website/templates/params/params.html' %}
+            {% render 'src/manual/templates/params/func.html' %}
+            {% render 'src/manual/templates/params/params.html' %}
          </ul>
       </div>
       <figure>
@@ -3870,9 +3871,9 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/data(object).html' %}
-            {% render 'website/templates/params/field.html' %}
-            {% render 'website/templates/params/value.html' %}
+            {% render 'src/manual/templates/params/data(object).html' %}
+            {% render 'src/manual/templates/params/field.html' %}
+            {% render 'src/manual/templates/params/value.html' %}
          </ul>
       </div>
       <figure>
@@ -3899,7 +3900,7 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/func-name.html' %}
+            {% render 'src/manual/templates/params/func-name.html' %}
          </ul>
       </div>
       <figure>
@@ -3920,7 +3921,7 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/value.html' %}
+            {% render 'src/manual/templates/params/value.html' %}
          </ul>
       </div>
       <figure>
@@ -3940,7 +3941,7 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/format-string-and-args.html' %}
+            {% render 'src/manual/templates/params/format-string-and-args.html' %}
          </ul>
       </div>
       <figure>
@@ -3962,7 +3963,7 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/value.html' %}
+            {% render 'src/manual/templates/params/value.html' %}
          </ul>
       </div>
       <figure>
@@ -3982,8 +3983,8 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/number-value.html' %}
-            {% render 'website/templates/params/precision.html' %}
+            {% render 'src/manual/templates/params/number-value.html' %}
+            {% render 'src/manual/templates/params/precision.html' %}
          </ul>
       </div>
       <figure>
@@ -4003,7 +4004,7 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/kebab-str.html' %}
+            {% render 'src/manual/templates/params/kebab-str.html' %}
          </ul>
       </div>
       <figure>
@@ -4023,7 +4024,7 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/camel-case-str.html' %}
+            {% render 'src/manual/templates/params/camel-case-str.html' %}
          </ul>
       </div>
       <figure>
@@ -4043,8 +4044,8 @@
       <div class=api-parameters>
          Parameters:
          <ul>
-            {% render 'website/templates/params/data(object).html' %}
-            {% render 'website/templates/params/field.html' %}
+            {% render 'src/manual/templates/params/data(object).html' %}
+            {% render 'src/manual/templates/params/field.html' %}
          </ul>
       </div>
       <figure>
@@ -4127,15 +4128,15 @@
             <tr><th>Example</th><th>Link</th></tr>
          </thead>
          <tbody class=external-site>
-            <tr><td><code>📚 Add a Book</code></td>      <td><a href=https://jsfiddle.net/{{package.websiteInfo.jsFiddle.addABook}}>      jsfiddle.net/{{package.websiteInfo.jsFiddle.addABook}}</a></td></tr>
-            <tr><td><code>📘 Book Finder</code></td>     <td><a href=https://jsfiddle.net/{{package.websiteInfo.jsFiddle.bookFinder}}>    jsfiddle.net/{{package.websiteInfo.jsFiddle.bookFinder}}</a></td></tr>
-            <tr><td><code>🎟️ Click Events</code></td>    <td><a href=https://jsfiddle.net/{{package.websiteInfo.jsFiddle.clickEvents}}>   jsfiddle.net/{{package.websiteInfo.jsFiddle.clickEvents}}</a></td></tr>
-            <tr><td><code>☯️ Live Model</code></td>      <td><a href=https://jsfiddle.net/{{package.websiteInfo.jsFiddle.liveModel}}>     jsfiddle.net/{{package.websiteInfo.jsFiddle.liveModel}}</a></td></tr>
-            <tr><td><code>🗂️ Panels Click</code></td>    <td><a href=https://jsfiddle.net/{{package.websiteInfo.jsFiddle.panelsClick}}>   jsfiddle.net/{{package.websiteInfo.jsFiddle.panelsClick}}</a></td></tr>
-            <tr><td><code>🎛 Panels Drop-down</code></td><td><a href=https://jsfiddle.net/{{package.websiteInfo.jsFiddle.panelsDropDown}}>jsfiddle.net/{{package.websiteInfo.jsFiddle.panelsDropDown}}</a></td></tr>
-            <tr><td><code>🌊 Photo Upload</code></td>    <td><a href=https://jsfiddle.net/{{package.websiteInfo.jsFiddle.photoUpload}}>   jsfiddle.net/{{package.websiteInfo.jsFiddle.photoUpload}}</a></td></tr>
-            <tr><td><code>⚡️ Smart Updates</code></td>   <td><a href=https://jsfiddle.net/{{package.websiteInfo.jsFiddle.smartUpdates}}>  jsfiddle.net/{{package.websiteInfo.jsFiddle.smartUpdates}}</a></td></tr>
-            <tr><td><code>✅ To Do</code></td>           <td><a href=https://jsfiddle.net/{{package.websiteInfo.jsFiddle.toDo}}>          jsfiddle.net/{{package.websiteInfo.jsFiddle.toDo}}</a></td></tr>
+            <tr><td><code>📚 Add a Book</code></td>      <td><a href=https://jsfiddle.net/{{package.manualInfo.jsFiddle.addABook}}>      jsfiddle.net/{{package.manualInfo.jsFiddle.addABook}}</a></td></tr>
+            <tr><td><code>📘 Book Finder</code></td>     <td><a href=https://jsfiddle.net/{{package.manualInfo.jsFiddle.bookFinder}}>    jsfiddle.net/{{package.manualInfo.jsFiddle.bookFinder}}</a></td></tr>
+            <tr><td><code>🎟️ Click Events</code></td>    <td><a href=https://jsfiddle.net/{{package.manualInfo.jsFiddle.clickEvents}}>   jsfiddle.net/{{package.manualInfo.jsFiddle.clickEvents}}</a></td></tr>
+            <tr><td><code>☯️ Live Model</code></td>      <td><a href=https://jsfiddle.net/{{package.manualInfo.jsFiddle.liveModel}}>     jsfiddle.net/{{package.manualInfo.jsFiddle.liveModel}}</a></td></tr>
+            <tr><td><code>🗂️ Panels Click</code></td>    <td><a href=https://jsfiddle.net/{{package.manualInfo.jsFiddle.panelsClick}}>   jsfiddle.net/{{package.manualInfo.jsFiddle.panelsClick}}</a></td></tr>
+            <tr><td><code>🎛 Panels Drop-down</code></td><td><a href=https://jsfiddle.net/{{package.manualInfo.jsFiddle.panelsDropDown}}>jsfiddle.net/{{package.manualInfo.jsFiddle.panelsDropDown}}</a></td></tr>
+            <tr><td><code>🌊 Photo Upload</code></td>    <td><a href=https://jsfiddle.net/{{package.manualInfo.jsFiddle.photoUpload}}>   jsfiddle.net/{{package.manualInfo.jsFiddle.photoUpload}}</a></td></tr>
+            <tr><td><code>⚡️ Smart Updates</code></td>   <td><a href=https://jsfiddle.net/{{package.manualInfo.jsFiddle.smartUpdates}}>  jsfiddle.net/{{package.manualInfo.jsFiddle.smartUpdates}}</a></td></tr>
+            <tr><td><code>✅ To Do</code></td>           <td><a href=https://jsfiddle.net/{{package.manualInfo.jsFiddle.toDo}}>          jsfiddle.net/{{package.manualInfo.jsFiddle.toDo}}</a></td></tr>
          </tbody>
       </table>
    </section>
@@ -4146,9 +4147,9 @@
    </div>
    <section>
       <h3 class=hide-me>Questions and comments</h3>
-      {% render 'website/templates/comments.html' %}
+      {% render 'src/manual/templates/comments.html' %}
    </section>
 
 </main>
 
-{% render 'website/templates/page-end.html' %}
+{% render 'src/manual/templates/page-end.html' %}

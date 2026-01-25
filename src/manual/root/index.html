@@ -1,4 +1,4 @@
-{% render 'website/templates/page-begin.html', webRoot: '.', title: package.description %}
+{% render 'src/manual/templates/page-begin.html', webRoot: '.', title: package.description %}
 
 <main>
 
@@ -17,7 +17,7 @@
          <h2>Download v{{package.version}}</h2>
          <p class=external-site>
             <button data-href=https://cdn.jsdelivr.net/npm/dna-engine@{{package.version|minor-version}}/dist/dna-engine.min.js>
-               <i data-icon=download></i> dna-engine.min.js ({{package.websiteInfo.gzipSize}})
+               <i data-icon=download></i> dna-engine.min.js ({{package.manualInfo.gzipSize}})
             </button>
             <button data-href=https://cdn.jsdelivr.net/npm/dna-engine@{{package.version|minor-version}}/dist/dna-engine.css>
                <i data-icon=download></i> dna-engine.css (1 kb gzip)
@@ -31,7 +31,7 @@
       </p>
       <div style="max-width: 400px; text-align: center; margin: 0px auto;">
          <figure class=video-container-link>
-            <iframe src=https://www.youtube.com/embed/{{package.websiteInfo.youTube.intro}} allow=fullscreen></iframe>
+            <iframe src=https://www.youtube.com/embed/{{package.manualInfo.youTube.intro}} allow=fullscreen></iframe>
             <figcaption>Introduction to dna-engine</figcaption>
          </figure>
          <span class=twitter>
@@ -131,7 +131,7 @@
    <section id=todo>
       <h3>✅ To-Do List Application Example</h3>
       <aside>
-         <a href=https://jsfiddle.net/{{package.websiteInfo.jsFiddle.toDo}} class=external-site>
+         <a href=https://jsfiddle.net/{{package.manualInfo.jsFiddle.toDo}} class=external-site>
             <img src=assets/app-todo.png alt=screenshot>
          </a>
       </aside>
@@ -141,8 +141,8 @@
       </p>
       <p>
          Experiment with the dna-engine to-do list application at:
-         <button data-href=https://jsfiddle.net/{{package.websiteInfo.jsFiddle.toDo}} class=external-site>
-            jsfiddle.net/{{package.websiteInfo.jsFiddle.toDo}}
+         <button data-href=https://jsfiddle.net/{{package.manualInfo.jsFiddle.toDo}} class=external-site>
+            jsfiddle.net/{{package.manualInfo.jsFiddle.toDo}}
          </button>
       </p>
       <p>
@@ -156,7 +156,7 @@
    <section id=book-finder>
       <h3>📘 Book Finder Example</h3>
       <aside>
-         <a href=https://jsfiddle.net/{{package.websiteInfo.jsFiddle.bookFinder}} class=external-site>
+         <a href=https://jsfiddle.net/{{package.manualInfo.jsFiddle.bookFinder}} class=external-site>
             <img src=assets/app-book-finder.png alt=screenshot>
          </a>
       </aside>
@@ -167,8 +167,8 @@
       </p>
       <p>
          Experiment with the Book Finder example at:
-         <button data-href=https://jsfiddle.net/{{package.websiteInfo.jsFiddle.bookFinder}} class=external-site>
-            jsfiddle.net/{{package.websiteInfo.jsFiddle.bookFinder}}
+         <button data-href=https://jsfiddle.net/{{package.manualInfo.jsFiddle.bookFinder}} class=external-site>
+            jsfiddle.net/{{package.manualInfo.jsFiddle.bookFinder}}
          </button>
       </p>
       <p>
@@ -181,7 +181,7 @@
    <section id=live-model>
       <h3>☯️ Live Model Example</h3>
       <aside>
-         <a href=https://jsfiddle.net/{{package.websiteInfo.jsFiddle.liveModel}} class=external-site>
+         <a href=https://jsfiddle.net/{{package.manualInfo.jsFiddle.liveModel}} class=external-site>
             <img src=assets/app-live-model.png alt=screenshot>
          </a>
       </aside>
@@ -191,8 +191,8 @@
       </p>
       <p>
          Interact with the live model at:
-         <button data-href=https://jsfiddle.net/{{package.websiteInfo.jsFiddle.liveModel}} class=external-site>
-            jsfiddle.net/{{package.websiteInfo.jsFiddle.liveModel}}
+         <button data-href=https://jsfiddle.net/{{package.manualInfo.jsFiddle.liveModel}} class=external-site>
+            jsfiddle.net/{{package.manualInfo.jsFiddle.liveModel}}
          </button>
       </p>
    </section>
@@ -246,9 +246,9 @@
    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
    <section id=comments>
       <h3>Questions and comments</h3>
-      {% render 'website/templates/comments.html' %}
+      {% render 'src/manual/templates/comments.html' %}
    </section>
 
 </main>
 
-{% render 'website/templates/page-end.html' %}
+{% render 'src/manual/templates/page-end.html' %}
