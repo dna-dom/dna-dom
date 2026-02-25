@@ -96,12 +96,12 @@
    <title>Folder: <?=$folderName?></title>
    <link rel=icon             href=<?=$gitHubRaw?>/icon.png>
    <link rel=apple-touch-icon href=<?=$gitHubRaw?>/icon.png>
-   <link rel=mask-icon        href=<?=$cdnBase?>/@fortawesome/fontawesome-free@7.1/svgs/solid/folder.svg color=darkgoldenrod>
+   <link rel=mask-icon        href=<?=$cdnBase?>/@fortawesome/fontawesome-free@7.2/svgs/solid/folder.svg color=darkgoldenrod>
    <link rel=preconnect       href=https://fonts.googleapis.com>
    <link rel=preconnect       href=https://fonts.gstatic.com crossorigin>
-   <link rel=stylesheet       href=<?=$cdnBase?>/@fortawesome/fontawesome-free@7.1/css/all.min.css>
-   <link rel=stylesheet       href=<?=$cdnBase?>/dna-engine@3.3/dist/dna-engine.css>
+   <link rel=stylesheet       href=<?=$cdnBase?>/@fortawesome/fontawesome-free@7.2/css/all.min.css>
    <link rel=stylesheet       href=<?=$cdnBase?>/web-ignition@2.5/dist/reset.min.css>
+   <link rel=stylesheet       href=<?=$cdnBase?>/dna-engine@3.3/dist/dna-engine.css>
    <style>
       body { color: dimgray; background-color: white; margin: 0px 20px; }
       main { min-height: auto; }
@@ -130,8 +130,8 @@
          main menu >li i.font-icon[data-icon=square-up-right] { color: crimson; }
          }
    </style>
-   <script defer src=<?=$cdnBase?>/dna-engine@3.3/dist/dna-engine.min.js></script>
    <script defer src=<?=$cdnBase?>/web-ignition@2.5/dist/lib-x.min.js></script>
+   <script defer src=<?=$cdnBase?>/dna-engine@3.3/dist/dna-engine.min.js></script>
    <script data-on-load=displayPath>
       const displayPath = () => {
          // Show the URL of the current folder.

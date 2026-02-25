@@ -72,7 +72,7 @@
          "tutorial": "5ZTP0FxFiYA"
       }
    },
-   "replacerConfig": {
+   "cliConfig": {
       "macros": {
          "cdn-url": "https://cdn.jsdelivr.net/npm/dna-engine@{{package.version|minor-version}}/dist/",
          "js-uri": "/dist/dna-engine.dev.js class=dev-mode"
@@ -133,8 +133,8 @@
    },
    "devDependencies": {
       "@eslint/js": "~9.39",
-      "@fortawesome/fontawesome-free": "~7.1",
-      "@types/node": "~25.0",
+      "@fortawesome/fontawesome-free": "~7.2",
+      "@types/node": "~25.3",
       "add-dist-header": "~1.6",
       "assert-deep-strict-equal": "~1.2",
       "browser-sync": "~3.0",
@@ -145,17 +145,17 @@
       "esm-to-plain-js": "~1.2",
       "fetch-json": "~3.3",
       "highlight.js": "~11.11",
-      "hljs-enhance": "~2.0",
-      "jsdom": "~27.4",
+      "hljs-enhance": "~2.1",
+      "jsdom": "~28.1",
       "jshint": "~2.13",
       "mocha": "~11.7",
-      "replacer-util": "~1.5",
+      "replacer-util": "~1.6",
       "rev-web-assets": "~1.5",
       "rimraf": "~6.1",
       "run-scripts-util": "~1.3",
       "serve": "~14.2",
       "typescript": "~5.9",
-      "typescript-eslint": "~8.53",
+      "typescript-eslint": "~8.56",
       "uglify-js": "~3.19",
       "w3c-html-validator": "~2.2",
       "web-ignition": "~2.5"

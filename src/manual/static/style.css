@@ -368,29 +368,29 @@ code.block-indent {
    clear: both;
    }
 
-/* Twitter */
-.twitter {
+/* X */
+.x-corp {
    display: inline-block;
    text-align: center;
    }
-.twitter a {
+.x-corp a {
    font-size: 0.8rem;
    }
-.twitter a i.font-icon {
+.x-corp a i.font-icon {
    display: block;
    font-size: 1.4rem;
    line-height: 0.6em;
    margin: 0px auto;
    opacity: 1;
    }
-.twitter a,
-.twitter a:visited,
-a.twitter,
-a.twitter:visited {
-   color: #1da1f2;  /* Twitter blue */
+.x-corp a,
+.x-corp a:visited,
+a.x-corp,
+a.x-corp:visited {
+   color: #1da1f2;  /* X Corp blue */
    }
-.twitter a:hover,
-a.twitter:hover {
+.x-corp a:hover,
+a.x-corp:hover {
    color: royalblue;
    }
 
