@@ -1,4 +1,4 @@
-//! dna-engine v3.3.2 ~~ https://dna-engine.org ~~ MIT License
+//! dna-dom v3.3.3 ~~ https://dna-dom.org ~~ MIT License
 
 const dnaName = {
     animating: 'dna-animating',
@@ -321,7 +321,7 @@ const dnaDom = {
         const fnName = callback.name || 'anonymous';
         const errMsg = () => `Exceeded maximum loading time of ${maxWait / 1000} seconds waiting for ${fnName}`;
         if (browserless && !options?.quiet)
-            console.info(dna.util.timestampMsec(), `[dna-engine] ${infoMsg}`);
+            console.info(dna.util.timestampMsec(), `[dna-dom] ${infoMsg}`);
         const callFn = () => {
             dna.core.assert(Date.now() - start < maxWait, errMsg(), callback);
             globalThis.setTimeout(state() === 'loading' ? () => callFn() : callback);
@@ -1480,7 +1480,7 @@ const dnaCore = {
     assert(ok, message, info) {
         const quoteStr = (info) => typeof info === 'string' ? `"${info}"` : String(info);
         if (!ok)
-            throw new Error(`[dna-engine] ${message} --> ${quoteStr(info)}`);
+            throw new Error(`[dna-dom] ${message} --> ${quoteStr(info)}`);
     },
     setup() {
         if (!globalThis.dna)
@@ -1496,7 +1496,7 @@ const dnaCore = {
     },
 };
 const dna = {
-    version: '3.3.2',
+    version: '3.3.3',
     clone(name, data, options) {
         const defaults = {
             callback: null,
@@ -1748,4 +1748,4 @@ const dna = {
     core: dnaCore,
 };
 dna.dom.onReady(dna.core.setup);
-globalThis.dna = dna;
+export { dna };

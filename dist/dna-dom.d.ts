@@ -1,4 +1,4 @@
-//! dna-engine v3.3.2 ~~ https://dna-engine.org ~~ MIT License
+//! dna-dom v3.3.3 ~~ https://dna-dom.org ~~ MIT License
 
 export type Json = string | number | boolean | null | undefined | JsonObject | Json[];
 export type JsonObject = {

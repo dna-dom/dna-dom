@@ -1,6 +1,6 @@
 {
    "name": "dna-dom",
-   "version": "3.3.2",
+   "version": "3.3.3",
    "description": "An uncomplicated user interface library for cloning semantic templates",
    "license": "MIT",
    "type": "module",
