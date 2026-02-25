@@ -100,7 +100,7 @@
          "add-dist-header build dist"
       ],
       "publish": [
-         "replacer src/website                           docs",
+         "replacer src/landing-page                      docs",
          "replacer --virtual-input . --rename=robots.txt docs --content=#{{space}}Allow{{space}}bots",
          "replacer --virtual-input . --rename=CNAME      docs --content=dna.js.org"
       ],
