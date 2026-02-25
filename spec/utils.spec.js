@@ -1,4 +1,4 @@
-// dna-engine
+// dna-dom
 // Mocha Specification Suite
 
 // Imports
@@ -7,8 +7,8 @@ import { JSDOM } from 'jsdom';
 import { timestamp } from './fixtures/mock-data.js';
 
 // Setup
-import { dna } from '../dist/dna-engine.js';
-const mode =     { type: 'ES Module', file: 'dist/dna-engine.js' };
+import { dna } from '../dist/dna-dom.js';
+const mode =     { type: 'ES Module', file: 'dist/dna-dom.js' };
 const filename = import.meta.url.replace(/.*\//, '');  //jshint ignore:line
 const dom =      new JSDOM('');
 const setupEnv = (done) => dna.initGlobal(dom.window) && done();

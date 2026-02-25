@@ -5,21 +5,21 @@
    <header>
       <h2>Documentation</h2>
       <p>
-         For an overview of using dna-engine, see the <a href=../#example>Bookstore Example</a>.
+         For an overview of using dna-dom, see the <a href=../#example>Bookstore Example</a>.
       </p>
       <p>
          For richer examples, view the HTML source of the project
          <a href=../spec/visual.html>visual specification runner</a>.
       </p>
       <p>
-         dna-engine <b>v<span class=version-number></span></b>
+         dna-dom <b>v<span class=version-number></span></b>
          is powering the interactive examples on this page.
       </p>
       <aside>
          <figure class=video-container-link>
             <iframe src=https://www.youtube.com/embed/{{package.manualInfo.youTube.intro}}
                allow=fullscreen></iframe>
-            <figcaption>Introduction to dna-engine</figcaption>
+            <figcaption>Introduction to dna-dom</figcaption>
          </figure>
       </aside>
       <nav class=toc>
@@ -207,23 +207,23 @@
       <h4>CDN</h4>
       <p>
          The
-         <a href=https://www.jsdelivr.com/package/npm/dna-engine class=external-site>jsDelivr CDN</a>
+         <a href=https://www.jsdelivr.com/package/npm/dna-dom class=external-site>jsDelivr CDN</a>
          makes it easy to get started.
       </p>
       <figure>
          <figcaption>Load CSS file</figcaption>
          <pre><code class=language-html>
-            &lt;link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-engine@{{package.version|minor-version}}/dist/dna-engine.css&gt;
+            &lt;link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-dom@{{package.version|minor-version}}/dist/dna-dom.css&gt;
          </code></pre>
       </figure>
       <figure>
          <figcaption>Load JavaScript libraries</figcaption>
          <pre><code class=language-html>
-            &lt;script src=https://cdn.jsdelivr.net/npm/dna-engine@{{package.version|minor-version}}/dist/dna-engine.min.js&gt;&lt;/script&gt;
+            &lt;script src=https://cdn.jsdelivr.net/npm/dna-dom@{{package.version|minor-version}}/dist/dna-dom.min.js&gt;&lt;/script&gt;
          </code></pre>
       </figure>
       <p>
-         Alternatively, you can use one of the methods below to download the dna-engine files into a
+         Alternatively, you can use one of the methods below to download the dna-dom files into a
          folder in your project.
       </p>
    </section>
@@ -231,13 +231,13 @@
    <section id=setup-npm>
       <h4>Install with npm</h4>
       <p>
-         <a href=https://www.npmjs.com/package/dna-engine class=external-site>npm</a>
+         <a href=https://www.npmjs.com/package/dna-dom class=external-site>npm</a>
          can download the assets to your project's <code>node_modules</code> folder.
       </p>
       <figure>
          <figcaption>npm</figcaption>
          <pre><code class=language-bash>
-            $ npm install dna-engine
+            $ npm install dna-dom
          </code></pre>
       </figure>
       <p class=big-symbol><i class=icon data-icon=circle-down></i></p>
@@ -246,7 +246,7 @@
          <pre><code class=language-json>
             ...
             "dependencies": {
-               "dna-engine": "~{{package.version|minor-version}}"
+               "dna-dom": "~{{package.version|minor-version}}"
             }
             ...
          </code></pre>
@@ -254,20 +254,20 @@
       <figure>
          <figcaption>Import into project</figcaption>
          <pre><code class=javascript>
-            import { dna } from 'dna-engine';
+            import { dna } from 'dna-dom';
          </code></pre>
       </figure>
       <p>
-         You can also run dna-engine headless (no browser) on Node.js with the DOM provided by
+         You can also run dna-dom headless (no browser) on Node.js with the DOM provided by
          jsdom.&nbsp;  See the sample project:
-         <a href=https://github.com/dna-engine/node-jsdom-starter>node-jsdom-starter</a>
+         <a href=https://github.com/dna-dom/node-jsdom-starter>node-jsdom-starter</a>
       </p>
    </section>
 
    <section id=setup-webpack>
       <h4>Install with webpack</h4>
       <p>
-         webpack treats the dna-engine library as a module.&nbsp;
+         webpack treats the dna-dom library as a module.&nbsp;
          Use <code>import</code> statements in your application to pull in the library's CSS and
          JavaScript.
       </p>
@@ -279,10 +279,10 @@
          <figcaption>webpack</figcaption>
          <pre><code class=language-javascript>
             // Imports
-            import 'dna-engine/dna-engine.css';
-            import 'dna-engine';
+            import 'dna-dom/dna-dom.css';
+            import 'dna-dom';
 
-            @import "dna-engine/dna-engine.css";
+            @import "dna-dom/dna-dom.css";
 
             // Application
             const myApp = {
@@ -295,13 +295,13 @@
                };
 
             // Initialization
-            dna.registerContext('myApp', myApp);  //make application visible to dna-engine
+            dna.registerContext('myApp', myApp);  //make application visible to dna-dom
             dna.dom.onReady(myApp.setup);  //call function myApp.setup() once DOM is ready
          </code></pre>
       </figure>
       <p class=external-site>
          Check out the sample webpack project:
-         <a href=https://github.com/dna-engine/webpack-to-do-app>webpack-to-do-app</a>.
+         <a href=https://github.com/dna-dom/webpack-to-do-app>webpack-to-do-app</a>.
       </p>
    </section>
 
@@ -1678,8 +1678,8 @@
       <p class=api-description>
          Registers an application object or individual function to enable it to be used for event
          callbacks.&nbsp;
-         Registration is needed when global namespace is not available to dna-engine, such as when
-         using webpack to load dna-engine as a module.
+         Registration is needed when global namespace is not available to dna-dom, such as when
+         using webpack to load dna-dom as a module.
       </p>
       <div class=api-parameters>
          Parameters:
@@ -2043,7 +2043,7 @@
    <section id=event-user>
       <h4>Click, Change, and Key Events</h4>
       <p>
-         Event bindings in dna-engine are done with data attributes directly on DOM elements that
+         Event bindings in dna-dom are done with data attributes directly on DOM elements that
          need to trigger callbacks.&nbsp;
          The value assigned to the attribute is the name of the function to be called when the
          event occurs.&nbsp;
@@ -2206,15 +2206,15 @@
       </p>
       <p>
          Smart update events can be used over WebSockets:<br>
-         <a href=https://github.com/dna-engine/smart-update-websockets>
-            github.com/dna-engine/smart-update-websockets
+         <a href=https://github.com/dna-dom/smart-update-websockets>
+            github.com/dna-dom/smart-update-websockets
          </a>
       </p>
       <figure>
-         <img src=https://raw.githubusercontent.com/dna-engine/smart-update-websockets/main/screenshot.png
+         <img src=https://raw.githubusercontent.com/dna-dom/smart-update-websockets/main/screenshot.png
             alt=screenshot>
          <figcaption>
-            Example WebSockets server and client showing throttled live updates using dna-engine
+            Example WebSockets server and client showing throttled live updates using dna-dom
          </figcaption>
       </figure>
    </section>
@@ -2362,11 +2362,11 @@
       <p>
          On a static page where all the HTML is sent in a single HTTP response, any needed element
          initialization can be done one time just after page load.&nbsp;
-         However, cloning with dna-engine creates new elements and adds them to the DOM after the
+         However, cloning with dna-dom creates new elements and adds them to the DOM after the
          page is loaded, and those new elements also need to be initialized.
       </p>
       <p>
-         When you register your initializer functions, dna-engine ensures DOM elements are setup
+         When you register your initializer functions, dna-dom ensures DOM elements are setup
          even if the elements are added to the DOM via cloning after the page is loaded.
       </p>
       <table>
@@ -2417,7 +2417,7 @@
       <p>
          <em>Note 2:</em>
          In the event that your application dynamically adds elements to the DOM without using
-         dna-engine, it may be necessary to explicitly run the initializers by passing the root
+         dna-dom, it may be necessary to explicitly run the initializers by passing the root
          element of new elements into: <code>dna.events.runInitializers(root);</code>
       </p>
    </section>
@@ -2522,7 +2522,7 @@
       <p>
          See the line
          <code>dna.clone('circle', circles, { callback: addStyle });</code>
-         used to create the <a href=../logo.html>dna-engine logo</a>.
+         used to create the <a href=../logo.html>dna-dom logo</a>.
       </p>
       <p>
          <em>Note:</em>
@@ -2675,7 +2675,7 @@
       <h4>Thimblerig (conditional hide and seek logic)</h4>
       <p>
          Instead of writing JavaScript to show and hide DOM elements, use an attribute to declare
-         whether the element should be shown or hidden.&nbsp; dna-engine supports four
+         whether the element should be shown or hidden.&nbsp; dna-dom supports four
          conditionals &mdash; two for the existence of a field and two for the
          <a href=#real-truth>"real" truth</a> of a field.
       </p>
@@ -2731,7 +2731,7 @@
       </p>
       <h5 id=real-truth>**Real Truth</h5>
       <p>
-         dna-engine evaluates if a data field is <code>true</code> or <code>false</code> based on rules
+         dna-dom evaluates if a data field is <code>true</code> or <code>false</code> based on rules
          designed to match the boolean meaning of data as it would be stored in a database or how the
          data would be interpreted in a business sense.&nbsp; For example, the string
          <code>'FALSE'</code> is evaluated to the boolean <code>false</code> when determining its
@@ -2881,7 +2881,7 @@
                &lt;button data-on-click=bookshelf.show&gt;Show component name&lt;/button&gt;
                &lt;script&gt;
                   const bookshelf = {
-                     booksUrl: 'https://dna-engine.org/api/books/',
+                     booksUrl: 'https://dna-dom.org/api/books/',
                      show(elem, event, component) {
                         elem.textContent = component.dataset.component + '!';
                         },
@@ -2911,7 +2911,7 @@
                <button data-on-click=bookshelf.show class=no-disable>Show component name</button>
                <script>
                   const bookshelf = {
-                     booksUrl: 'https://dna-engine.org/api/books/',
+                     booksUrl: 'https://dna-dom.org/api/books/',
                      show(elem, event, component) {
                         elem.textContent = component.dataset.component + '!';
                         },
@@ -3204,7 +3204,7 @@
    <section id=panels-routes>
       <h4>Panel Routes</h4>
       <p>
-         Create routes in dna-engine by adding a <code>data-hash</code> attribute to each panel
+         Create routes in dna-dom by adding a <code>data-hash</code> attribute to each panel
          element.&nbsp;
          The value specified by <code>data-hash</code> becomes the fragment identifier (hash) in the
          URL.
@@ -3295,7 +3295,7 @@
       <p class=external-site>
          It's straightforward to style your panel navigation with CSS.&nbsp;
          See the CSS for the examples below:
-         <a href=https://github.com/dna-engine/dna-engine/blob/main/src/manual/static/panel-nav.css>
+         <a href=https://github.com/dna-dom/dna-dom/blob/main/src/manual/static/panel-nav.css>
             <code>panel-nav.css</code>
          </a>
       </p>
@@ -3385,7 +3385,7 @@
    <div>
       <h3 id=utils>Utilities</h3>
       <p>
-         The utility functions built into dna-engine are available to be called directly in the event
+         The utility functions built into dna-dom are available to be called directly in the event
          that they might be generally useful.
       </p>
       <h5>Utility Functions Overview</h5>

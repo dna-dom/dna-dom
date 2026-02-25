@@ -1,14 +1,14 @@
 #!/bin/bash
-##########################
-# dna-engine             #
-# Publish Manual         #
-# https://dna-engine.org #
-##########################
+#######################
+# dna-dom             #
+# Publish Manual      #
+# https://dna-dom.org #
+#######################
 
 # To make this file runnable:
 #     $ chmod +x *.sh.command
 
-banner="Publish Manual --> dna-engine.org"
+banner="Publish Manual --> dna-dom.org"
 projectHome=$(cd $(dirname $0)/../..; pwd)
 pkgInstallHome=$(dirname $(dirname $(which httpd)))
 apacheCfg=$pkgInstallHome/etc/httpd
@@ -39,7 +39,7 @@ buildHtmlFiles() {
 publishWebFiles() {
    cd $projectHome
    publishSite=$webDocRoot/centerkey.com
-   publishFolder=$publishSite/www.dna-engine.org
+   publishFolder=$publishSite/www.dna-dom.org
    publish() {
       echo "Publishing:"
       echo $publishSite

@@ -1,4 +1,5 @@
-/* dna-engine ~~ MIT ~~ dna-engine.org/license */
+/* dna-dom ~~ MIT ~~ dna-dom.org/license */
+
 /*****************************************/
 /* Panel navigation styles:              */
 /*    1) flat-tabs                       */
@@ -49,7 +50,7 @@ nav.dna-menu[data-style=flat-tabs]+.dna-panels {
    nav.dna-menu[data-style=flat-tabs] { font-size: 0.8rem; }
    nav.dna-menu[data-style=flat-tabs] span { padding: 8px 20px; }
    }
-/* dna-engine panel navigation -- customize colors */
+/* dna-dom panel navigation -- customize colors */
 nav.dna-menu[data-style=flat-tabs]                   { background-color: indianred; }
 nav.dna-menu[data-style=flat-tabs] span.dna-selected { background-color: brown; }
 nav.dna-menu[data-style=flat-tabs] span:hover        { background-color: brown; }
@@ -93,6 +94,6 @@ nav.dna-menu[data-style=pillbox-tabs]+.dna-panels {
    nav.dna-menu[data-style=pillbox-tabs] { font-size: 0.8rem; }
    nav.dna-menu[data-style=pillbox-tabs] span { padding: 7px 25px; }
    }
-/* dna-engine panel navigation -- customize colors */
+/* dna-dom panel navigation -- customize colors */
 nav.dna-menu[data-style=pillbox-tabs] span.dna-selected { background-color: lightsteelblue; }
 nav.dna-menu[data-style=pillbox-tabs] span:hover        { background-color: lightsteelblue; }

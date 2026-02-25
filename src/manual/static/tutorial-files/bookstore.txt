@@ -1,11 +1,11 @@
-Introduction to dna-engine (open source template cloning engine)
+Introduction to dna-dom (open source template cloning engine)
 An uncomplicated user interface library for cloning semantic templates
 
-1) Welcome to the introduction to dna-engine.  dna-engine is an open source UI library for building semantic templates that convert JSON data into dynamically generated DOM elements.
+1) Welcome to the introduction to dna-dom.  dna-dom is an open source UI library for building semantic templates that convert JSON data into dynamically generated DOM elements.
 
-2) To illustrate how to use dna-engine we will take a very simple static HTML page that displays the title and author of two books and convert the web page to use a data-driven semantic template to display books stored in a JavaScript array.
+2) To illustrate how to use dna-dom we will take a very simple static HTML page that displays the title and author of two books and convert the web page to use a data-driven semantic template to display books stored in a JavaScript array.
 
-3) Before we get going, we need to load the dna-engine library.  Leveraging a CDN (Content Delivery Network), we can this is two lines of code.  In the <head> section, add a <link> tag to get the CSS file for dna-engine.  Then add a <script> tag to load the JavaScript file for dna-engine.
+3) Before we get going, we need to load the dna-dom library.  Leveraging a CDN (Content Delivery Network), we can this is two lines of code.  In the <head> section, add a <link> tag to get the CSS file for dna-dom.  Then add a <script> tag to load the JavaScript file for dna-dom.
 
 4) Now we can convert the static HTML into a template.  To build the template, we only need HTML for a single book, so we can delete the second book.  Name the template with the ID attribute, and in this case the name of the template will be "book".  We designate the element as a template by adding the class "dna-template".
 
@@ -17,8 +17,8 @@ An uncomplicated user interface library for cloning semantic templates
 
 8) Back to the browser.  Refresh.  And, there's our three books: "The DOM", "Howdy HTML5", and "Styling CSS3"
 
-9) For more information, including cloning options, animation, and event handling, check out the documentation on the dna-engine.org website.  From there you can also get to the GitHub project and post issues with questions.
+9) For more information, including cloning options, animation, and event handling, check out the documentation on the dna-dom.org website.  From there you can also get to the GitHub project and post issues with questions.
 
-https://dna-engine.org
+https://dna-dom.org
 License under Creative Commons CC-BY 4.0
 This video is not monetized.

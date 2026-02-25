@@ -1,18 +1,18 @@
 <!doctype html>
 <html lang=en>
-<!-- - - - - - - - - - - - - - - - - -->
-<!-- dna-engine                      -->
-<!-- Visual Specification Runner     -->
-<!-- dna-engine.org/spec/visual.html -->
-<!-- - - - - - - - - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - -->
+<!-- dna-dom                       -->
+<!-- Visual Specification Runner   -->
+<!-- dna-dom.org/spec/visual.html  -->
+<!-- - - - - - - - - - - - - - - - -->
 <head>
    <meta charset=utf-8>
    <meta name=viewport    content="width=device-width, initial-scale=1">
    <meta name=robots      content="index, follow">
-   <meta name=description content="dna-engine ~~ Specification Runner">
-   <title>dna-engine ~~ Specification Runner</title>
-   <link rel=icon       href=https://dna-engine.org/graphics/bookmark-icon.png>
-   <link rel=stylesheet href=../dist/dna-engine.css>
+   <meta name=description content="dna-dom ~~ Specification Runner">
+   <title>dna-dom ~~ Specification Runner</title>
+   <link rel=icon       href=https://dna-dom.org/graphics/bookmark-icon.png>
+   <link rel=stylesheet href=../dist/dna-dom.css>
    <style>
       body               { font-family: system-ui, sans-serif; margin: 30px; }
       body >header       { display: flex; justify-content: space-between; margin-bottom: 30px; }
@@ -54,7 +54,7 @@
       body.minified-mode       .minified-hide { display: none; }
    </style>
    <script defer src=https://cdn.jsdelivr.net/npm/fetch-json@3.3/dist/fetch-json.min.js></script>
-   <script defer src=../dist/dna-engine.dev.js></script>
+   <script defer src=../dist/dna-dom.dev.js></script>
    <script>globalThis.onerror = () => globalThis.document.body.style.background = 'pink';</script>
    <script data-on-load=specRunner.setup>
       const spec =   {};
@@ -75,7 +75,7 @@
                console.info(sectionNode.id);
                spec[sectionNode.id].run();
                };
-            console.info('~~ dna-engine ~~');
+            console.info('~~ dna-dom ~~');
             console.info('Version: ' + dna.info().version);
             console.info('Specifications:');
             const start = Date.now();
@@ -100,15 +100,15 @@
 
 <header>
    <div>
-      <h1>dna-engine v<span class=version-number></span></h1>
+      <h1>dna-dom v<span class=version-number></span></h1>
       <h2>Visual Specification Runner</h2>
    </div>
    <nav>
-      <p><button data-href=https://dna-engine.org>dna-engine.org</button></p>
-      <p><button data-href=https://dna-engine.org class=external-site>dna-engine.org <span>(new tab)</span></button></p>
-      <p><button data-href=https://dna-engine.org data-target=project>dna-engine.org <span>(target)</span></button></p>
-      <p class=minified-hide><span>dna-engine.dev.js</span> &mdash; <a href=visual.min.html>switch</a></p>
-      <p class=minified-show><span>dna-engine.min.js</span> &mdash; <a href=visual.html>switch</a></p>
+      <p><button data-href=https://dna-dom.org>dna-dom.org</button></p>
+      <p><button data-href=https://dna-dom.org class=external-site>dna-dom.org <span>(new tab)</span></button></p>
+      <p><button data-href=https://dna-dom.org data-target=project>dna-dom.org <span>(target)</span></button></p>
+      <p class=minified-hide><span>dna-dom.dev.js</span> &mdash; <a href=visual.min.html>switch</a></p>
+      <p class=minified-show><span>dna-dom.min.js</span> &mdash; <a href=visual.html>switch</a></p>
    </nav>
 </header>
 
@@ -275,7 +275,7 @@
          <div class=dna-clone>
             <div>Title:  <span>&lt;b&gt;Text&lt;/b&gt;&amp;bull;</span></div>
             <div>Author: <cite>Lee</cite></div>
-            <div>Cover: <img src=https://dna-engine.org/graphics/dna-logo.png alt=cover></div>
+            <div>Cover: <img src=https://dna-dom.org/graphics/dna-logo.png alt=cover></div>
          </div>
       </div>
    </fieldset>
@@ -286,7 +286,7 @@
          const book = {
             title:  '<b>Text</b>&bull;',
             author: 'Lee',
-            image:  'https://dna-engine.org/graphics/dna-logo.png'
+            image:  'https://dna-dom.org/graphics/dna-logo.png'
             };
          dna.clone('s04-book', book);
          },
@@ -601,12 +601,12 @@
 <script>
    spec.spec09 = {
       run() {
-         const links = ['https://dna-engine.org/api/books/1/', 'https://dna-engine.org/api/books/2/'];
+         const links = ['https://dna-dom.org/api/books/1/', 'https://dna-dom.org/api/books/2/'];
          dna.clone('s09-rest-link', links);
          const insertBook = (book) => dna.clone('s09-book', book, { top: book.id === 1, fade: true });
          fetchJson.enableLogger();
-         fetchJson.get('https://dna-engine.org/api/books/1/').then(insertBook);
-         fetchJson.get('https://dna-engine.org/api/books/2/').then(insertBook);
+         fetchJson.get('https://dna-dom.org/api/books/1/').then(insertBook);
+         fetchJson.get('https://dna-dom.org/api/books/2/').then(insertBook);
          },
       };
 </script>
@@ -627,15 +627,15 @@
       <legend>Expected</legend>
       <div class=book-list>
          <div class=dna-clone
-            style="height: 60px; color: white; background-image: url(https://dna-engine.org/graphics/dna-logo.png); background-size: 80px;">
+            style="height: 60px; color: white; background-image: url(https://dna-dom.org/graphics/dna-logo.png); background-size: 80px;">
             <div>Background</div>
          </div>
          <div class=dna-clone
-            style="height: 60px; color: white; background-image: url(https://dna-engine.org/graphics/dna-logo.png); background-size: 80px;">
+            style="height: 60px; color: white; background-image: url(https://dna-dom.org/graphics/dna-logo.png); background-size: 80px;">
             <div>Background</div>
          </div>
          <div class=dna-clone
-            style="height: 60px; color: white; background-image: url(https://dna-engine.org/graphics/dna-logo.png); background-size: 80px;">
+            style="height: 60px; color: white; background-image: url(https://dna-dom.org/graphics/dna-logo.png); background-size: 80px;">
             <div>Background</div>
          </div>
       </div>
@@ -652,7 +652,7 @@
             });
          const applyCss =     (elem) => (entity) => elem.style.setProperty(dna.util.toKebab(entity[0]), entity[1]);
          const applyBackgnd = (elem, model) => Object.entries(css(model.image)).forEach(applyCss(elem));
-         const url =          'https://dna-engine.org/graphics/dna-logo.png';
+         const url =          'https://dna-dom.org/graphics/dna-logo.png';
          const book =         { title: 'Background', image: `url(${url})` };
          const options =      { fade: false, callback: applyBackgnd, clones: 3 };
          dna.clone('s10-book', book, options);
@@ -1415,7 +1415,7 @@
                   elem.innerText = component.dataset.msg + Math.floor(event.timeStamp);
                   },
                setup(elem, component) {
-                  const booksUrl = 'https://dna-engine.org/api/books/';
+                  const booksUrl = 'https://dna-dom.org/api/books/';
                   const button =   component.querySelector('button');
                   button.dataset.href = booksUrl;
                   button.classList.add('external-site');
@@ -1997,7 +1997,7 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 </main>
 <footer>
-   dna-engine v<span class=version-number></span>
+   dna-dom v<span class=version-number></span>
 </footer>
 
 </body>

@@ -1,13 +1,13 @@
 #!/bin/bash
 ###############
 # Task Runner #
-# dna-engine  #
+# dna-dom     #
 ###############
 
 # To make this file runnable:
 #     $ chmod +x *.sh.command
 
-banner="dna-engine"
+banner="dna-dom"
 projectHome=$(cd $(dirname $0); pwd)
 
 setupTools() {

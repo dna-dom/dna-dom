@@ -1,15 +1,15 @@
-# dna-engine
-<img src=https://dna-engine.org/graphics/dna-logo.png align=right width=160 alt=logo>
+# dna-dom
+<img src=https://dna-dom.org/graphics/dna-logo.png align=right width=160 alt=logo>
 
 _An uncomplicated user interface library for cloning semantic templates_
 
-[![License:MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://dna-engine.org/license)
-[![npm](https://img.shields.io/npm/v/dna-engine.svg)](https://www.npmjs.com/package/dna-engine)
-[![Hits](https://data.jsdelivr.com/v1/package/npm/dna-engine/badge?style=rounded)](https://www.jsdelivr.com/package/npm/dna-engine)
-[![Build](https://github.com/dna-engine/dna-engine/actions/workflows/run-spec-on-push.yaml/badge.svg)](https://github.com/dna-engine/dna-engine/actions/workflows/run-spec-on-push.yaml)
-[![Publish Website](https://github.com/dna-engine/dna-engine/actions/workflows/publish-website.yaml/badge.svg)](https://github.com/dna-engine/dna-engine/actions/workflows/publish-website.yaml)
+[![License:MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://dna-dom.org/license)
+[![npm](https://img.shields.io/npm/v/dna-dom.svg)](https://www.npmjs.com/package/dna-dom)
+[![Hits](https://data.jsdelivr.com/v1/package/npm/dna-dom/badge?style=rounded)](https://www.jsdelivr.com/package/npm/dna-dom)
+[![Build](https://github.com/dna-dom/dna-dom/actions/workflows/run-spec-on-push.yaml/badge.svg)](https://github.com/dna-dom/dna-dom/actions/workflows/run-spec-on-push.yaml)
+[![Publish Website](https://github.com/dna-dom/dna-dom/actions/workflows/publish-website.yaml/badge.svg)](https://github.com/dna-dom/dna-dom/actions/workflows/publish-website.yaml)
 
-dna-engine is a lightweight easy-to-use UI library enabling developers to rapidly build maintainable
+dna-dom is a lightweight easy-to-use UI library enabling developers to rapidly build maintainable
 JavaScript applications.
 
 ## A) Bookstore Example
@@ -55,11 +55,11 @@ Need to clone the template multiple times?&nbsp;
 Simply pass an array of data objects into the `dna.clone()` function.
 
 ## B) Additional Information
-* [https://dna-engine.org](https://dna-engine.org/) (see the *"Try it out"* section for an interactive example)
+* [https://dna-dom.org](https://dna-dom.org/) (see the *"Try it out"* section for an interactive example)
 * [Sample To-Do Application](https://jsfiddle.net/4jkua81f) (jsfiddle)
-* [Introduction to dna-engine](https://youtu.be/1CrYAFZPdAg) (YouTube)
-* [Documentation](https://dna-engine.org/docs)
-* [Release Notes](https://github.com/dna-engine/dna-engine/wiki/Release-Notes)
+* [Introduction to dna-dom](https://youtu.be/1CrYAFZPdAg) (YouTube)
+* [Documentation](https://dna-dom.org/docs)
+* [Release Notes](https://github.com/dna-dom/dna-dom/wiki/Release-Notes)
 
 ## C) Contributor Notes
 To be a contributor, **fork** the project and run the commands `npm install` and `npm test` on your
@@ -87,8 +87,8 @@ interesting approach to organizing build tasks.
 
 ---
 Feel free to submit questions at:<br>
-[github.com/dna-engine/dna-engine/issues](https://github.com/dna-engine/dna-engine/issues)
+[github.com/dna-dom/dna-dom/issues](https://github.com/dna-dom/dna-dom/issues)
 
-dna-engine is open source under the [MIT License](https://dna-engine.org/license).&nbsp;
+dna-dom is open source under the [MIT License](https://dna-dom.org/license).&nbsp;
 The website and documentation are published under the
 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) license.

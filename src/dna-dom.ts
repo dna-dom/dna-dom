@@ -1,4 +1,4 @@
-// dna-engine ~~ MIT License
+// dna-dom ~~ MIT License
 
 // Types: Basic
 export type Json =       string | number | boolean | null | undefined | JsonObject | Json[];
@@ -577,7 +577,7 @@ const dnaDom = {
       const errMsg = () =>
          `Exceeded maximum loading time of ${maxWait/1000} seconds waiting for ${fnName}`;
       if (browserless && !options?.quiet)
-         console.info(dna.util.timestampMsec(), `[dna-engine] ${infoMsg}`);
+         console.info(dna.util.timestampMsec(), `[dna-dom] ${infoMsg}`);
       const callFn = () => {
          dna.core.assert(Date.now() - start < maxWait, errMsg(), callback);
          globalThis.setTimeout(state() === 'loading' ? () => callFn() : callback);
@@ -1557,7 +1557,7 @@ const dnaTemplate = {
 
 const dnaEvents = {
    db: {
-      context:      <DnaContext>{},  //storage to register callbacks when dna-engine is module loaded without window scope (webpack)
+      context:      <DnaContext>{},  //storage to register callbacks when dna-dom is module loaded without window scope (webpack)
       initializers: <DnaInitializer[]>[],  //example: [{ func: 'app.bar.setup', selector: '.progress-bar' }]
       },
    runOnLoads(options?: Partial<DnaSettingsRunOnLoads>): NodeListOf<Element> {
@@ -1681,7 +1681,7 @@ const dnaEvents = {
          };
       const jumpToUrl = (elem: Element) => {
          // Usage:
-         //    <button data-href=https://dna-engine.org>dna-engine</button>
+         //    <button data-href=https://dna-dom.org>dna-dom</button>
          // If element (or parent) has the class "external-site", page will be opened in a new tab.
          const useSameTab = dna.browser.userAgentData().mobile;
          const target =     elem.closest('.external-site') ? '_blank' : '_self';
@@ -1940,11 +1940,11 @@ const dnaCore = {
       // Oops, file a tps report if "ok" is falsey.
       const quoteStr = (info: unknown) => typeof info === 'string' ? `"${info}"` : String(info);
       if (!ok)
-        throw new Error(`[dna-engine] ${message} --> ${quoteStr(info)}`);
+        throw new Error(`[dna-dom] ${message} --> ${quoteStr(info)}`);
       },
    setup(): unknown {
       if (!<Dna | undefined>globalThis.dna)
-         globalThis.dna = dna;  //ensure run-time visibility of dna-engine used with module bundlers
+         globalThis.dna = dna;  //ensure run-time visibility of dna-dom used with module bundlers
       const setupBrowser = () => {
          dna.placeholder.setup();
          dna.panels.setup();
@@ -1981,7 +1981,7 @@ const dna = {
    //    dna.registerInitializer()
    //    dna.registerContext()
    //    dna.info()
-   // See: https://dna-engine.org/docs/#api
+   // See: https://dna-dom.org/docs/#api
    clone<M extends T | T[], T>(name: string, data: M, options?: Partial<DnaSettingsClone<T>>) {
       // Generates a copy of the template and populates the fields, attributes, and
       // classes from the supplied data.
@@ -2211,8 +2211,8 @@ const dna = {
       },
    registerContext(contextName: string, contextObjOrFn: { [name: string]: unknown } | DnaCallback): DnaContext {
       // Registers an application object or individual function to enable it to be used for event
-      // callbacks.  Registration is needed when global namespace is not available to dna-engine, such
-      // as when using webpack to load dna-engine as a module.
+      // callbacks.  Registration is needed when global namespace is not available to dna-dom, such
+      // as when using webpack to load dna-dom as a module.
       dna.events.db.context[contextName] = contextObjOrFn;
       return dna.events.db.context;
       },

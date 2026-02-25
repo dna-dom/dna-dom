@@ -24,7 +24,7 @@
       <aside style="width: 240px;">
          <figure class=video-container-link>
             <iframe src=https://www.youtube.com/embed/{{package.manualInfo.youTube.tutorial}} allow=fullscreen></iframe>
-            <figcaption>dna-engine tutorial</figcaption>
+            <figcaption>dna-dom tutorial</figcaption>
          </figure>
       </aside>
       <h4>Steps:</h4>
@@ -34,7 +34,7 @@
          <li><a href=#step3>Add search results component</a></li>
          <li><a href=#step4>Style search results</a></li>
          <li><a href=#step5>Define book template</a></li>
-         <li><a href=#step6>Load dna-engine</a></li>
+         <li><a href=#step6>Load dna-dom</a></li>
          <li><a href=#step7>Wire up search callback</a></li>
          <li><a href=#step8>Make REST call</a></li>
          <li><a href=#step9>Smarten up the search field</a></li>
@@ -111,7 +111,7 @@
          <pre><code class=language-html>
             &lt;section class=books&gt;
                &lt;div class=book&gt;
-                  &lt;img src=https://dna-engine.org/graphics/sample-book-cover.jpg alt=cover&gt;
+                  &lt;img src=https://dna-dom.org/graphics/sample-book-cover.jpg alt=cover&gt;
                   &lt;div&gt;
                      &lt;h2&gt;Title&lt;/h2&gt;
                      &lt;p&gt;Publisher&lt;/p&gt;
@@ -237,7 +237,7 @@
 
    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
    <section id=step6>
-      <h3>Step 6: Load dna-engine and fetch-json</h3>
+      <h3>Step 6: Load dna-dom and fetch-json</h3>
       <p>
          The easiest way to get the necessary CSS and JavaScript libraries is the pull them from a
          <a href=https://en.wikipedia.org/wiki/Content_delivery_network
@@ -249,14 +249,14 @@
       <figure>
          <figcaption>CSS and JS links in <code>head</code> section</figcaption>
          <pre><code class=language-html>
-            &lt;link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-engine@{{package.version|minor-version}}/dist/dna-engine.css&gt;
-            &lt;script src=https://cdn.jsdelivr.net/npm/dna-engine@{{package.version|minor-version}}/dist/dna-engine.min.js&gt;&lt;/script&gt;
+            &lt;link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-dom@{{package.version|minor-version}}/dist/dna-dom.css&gt;
+            &lt;script src=https://cdn.jsdelivr.net/npm/dna-dom@{{package.version|minor-version}}/dist/dna-dom.min.js&gt;&lt;/script&gt;
             &lt;script src=https://cdn.jsdelivr.net/npm/fetch-json@{{package.devDependencies.fetch-json|version}}/dist/fetch-json.min.js&gt;&lt;/script&gt;
          </code></pre>
       </figure>
       <p>
          Go to your web browser and reload the <code>book-finder.html</code> page.&nbsp;
-         Verify dna-engine loaded properly by going into the JavaScript console and entering the
+         Verify dna-dom loaded properly by going into the JavaScript console and entering the
          command:
          <code>dna.info();</code>
       </p>
@@ -287,7 +287,7 @@
       <p>
          To wire up the function to the "Find" button, we'll use the <code>dna-click</code>
          attribute.&nbsp;
-         The attribute tells dna-engine which function to call when the user clicks the element.
+         The attribute tells dna-dom which function to call when the user clicks the element.
       </p>
       <p>
          Set the <code>data-on-click</code> attribute to <code>findBooks</code> on the
@@ -328,7 +328,7 @@
             <a href=docs/#api-clone>dna.clone()</a></li>
       </ol>
       <p>
-         The options <code>{ empty: true, fade: true }</code> tell dna-engine to delete any previous
+         The options <code>{ empty: true, fade: true }</code> tell dna-dom to delete any previous
          results before displaying the new results and to smoothly fade in the new results.
       </p>
       <p>
@@ -342,7 +342,7 @@
       <p>
          Clicking the "Find" button may be simple, but it makes for a cumbersome user
          experience.&nbsp;
-         We can leverage the smart update feature in dna-engine to replace the button with automatic
+         We can leverage the smart update feature in dna-dom to replace the button with automatic
          searching.
       </p>
       <p>
@@ -357,7 +357,7 @@
          </code></pre>
       </figure>
       <p>
-         dna-engine passes the event target element into the callback.&nbsp;
+         dna-dom passes the event target element into the callback.&nbsp;
          The callback event now happens on the <code>&lt;input&gt;</code> element, so we can
          delete the old
          <code>const terms = globalThis.document.querySelector('input').value;</code>
@@ -396,8 +396,8 @@
             &lt;head&gt;
                &lt;meta charset=utf-8&gt;
                &lt;title&gt;Book Finder&lt;/title&gt;
-               &lt;link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-engine@{{package.version|minor-version}}/dist/dna-engine.css&gt;
-               &lt;script src=https://cdn.jsdelivr.net/npm/dna-engine@{{package.version|minor-version}}/dist/dna-engine.min.js&gt;&lt;/script&gt;
+               &lt;link rel=stylesheet href=https://cdn.jsdelivr.net/npm/dna-dom@{{package.version|minor-version}}/dist/dna-dom.css&gt;
+               &lt;script src=https://cdn.jsdelivr.net/npm/dna-dom@{{package.version|minor-version}}/dist/dna-dom.min.js&gt;&lt;/script&gt;
                &lt;script src=https://cdn.jsdelivr.net/npm/fetch-json@{{package.devDependencies.fetch-json|version}}/dist/fetch-json.min.js&gt;&lt;/script&gt;
                &lt;style&gt;
                   body      { font-family: system-ui; margin: 30px; }

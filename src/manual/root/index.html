@@ -3,39 +3,39 @@
 <main>
 
    <header>
-      <h2 class=hide-me>dna-engine</h2>
+      <h2 class=hide-me>dna-dom</h2>
    </header>
 
    <section id=intro>
       <h3 class=hide-me>Introduction</h3>
       <p>
          {{package.meta.summary}}&nbsp;
-         You write semantic templates and then dna-engine converts your JSON data into dynamically
+         You write semantic templates and then dna-dom converts your JSON data into dynamically
          generated DOM elements.
       </p>
       <figure>
          <h2>Download v{{package.version}}</h2>
          <p class=external-site>
-            <button data-href=https://cdn.jsdelivr.net/npm/dna-engine@{{package.version|minor-version}}/dist/dna-engine.min.js>
-               <i data-icon=download></i> dna-engine.min.js ({{package.manualInfo.gzipSize}})
+            <button data-href=https://cdn.jsdelivr.net/npm/dna-dom@{{package.version|minor-version}}/dist/dna-dom.min.js>
+               <i data-icon=download></i> dna-dom.min.js ({{package.manualInfo.gzipSize}})
             </button>
-            <button data-href=https://cdn.jsdelivr.net/npm/dna-engine@{{package.version|minor-version}}/dist/dna-engine.css>
-               <i data-icon=download></i> dna-engine.css (1 kb gzip)
+            <button data-href=https://cdn.jsdelivr.net/npm/dna-dom@{{package.version|minor-version}}/dist/dna-dom.css>
+               <i data-icon=download></i> dna-dom.css (1 kb gzip)
             </button>
          </p>
          (or use <a href=docs/#setup-npm>npm</a> or the <a href=docs/#setup-cdn>jsDelivr CDN</a>)
       </figure>
       <p>
-         The dna-engine project is open source under the <a href=license>MIT License</a> and hosted on
-         <a href=https://github.com/dna-engine/dna-engine>GitHub</a>.
+         The dna-dom project is open source under the <a href=license>MIT License</a> and hosted on
+         <a href=https://github.com/dna-dom/dna-dom>GitHub</a>.
       </p>
       <div style="max-width: 400px; text-align: center; margin: 0px auto;">
          <figure class=video-container-link>
             <iframe src=https://www.youtube.com/embed/{{package.manualInfo.youTube.intro}} allow=fullscreen></iframe>
-            <figcaption>Introduction to dna-engine</figcaption>
+            <figcaption>Introduction to dna-dom</figcaption>
          </figure>
          <span class=x-corp>
-            <a href=https://x.com/dna_dom><i data-brand=x-twitter></i>#dna-engine</a>
+            <a href=https://x.com/dna_js><i data-brand=x-twitter></i>#dna-dom</a>
          </span>
       </div>
    </section>
@@ -140,7 +140,7 @@
          understand a library.<br>
       </p>
       <p>
-         Experiment with the dna-engine to-do list application at:
+         Experiment with the dna-dom to-do list application at:
          <button data-href=https://jsfiddle.net/{{package.manualInfo.jsFiddle.toDo}} class=external-site>
             jsfiddle.net/{{package.manualInfo.jsFiddle.toDo}}
          </button>
@@ -161,7 +161,7 @@
          </a>
       </aside>
       <p>
-         dna-engine is designed work well in REST applicatons.&nbsp;
+         dna-dom is designed work well in REST applicatons.&nbsp;
          This simple example shows results from the Google Books API being fed into the
          <code>dna.clone()</code> function.
       </p>
@@ -186,7 +186,7 @@
          </a>
       </aside>
       <p>
-         dna-engine keeps track of the data model (the "M" in MVC) and updates the UI as the user
+         dna-dom keeps track of the data model (the "M" in MVC) and updates the UI as the user
          changes the model.<br>
       </p>
       <p>
@@ -203,15 +203,15 @@
       <p>
          The big frameworks, like Angular, React, and Vue, are powerful, but they require a fair
          a amount of technical expertise just to get started.&nbsp; The HTML and JavaScript to
-         create web applications using dna-engine is familiar to all web developers, enabling
-         developers to be productive on the first day of using dna-engine.
+         create web applications using dna-dom is familiar to all web developers, enabling
+         developers to be productive on the first day of using dna-dom.
       </p>
          Templating should be unobtrusive, clean, and simple:
       <ol>
          <li><b>Independent:</b> Be web framework agnostic.</li>
          <li><b>Cohesive:</b> Put no HTML in your JavaScript.</li>
          <li class=external-site><b>Valid:</b> Templates should be real HTML that pass
-            <a href="https://validator.w3.org/nu/?doc=https://dna-engine.org">W3C
+            <a href="https://validator.w3.org/nu/?doc=https://dna-dom.org">W3C
             validation</a>.</li>
          <li><b>Functional:</b> Iteration is best done with
             <a href=docs/#loop-templates>data arrays</a> not messy template <code>for</code>
@@ -226,20 +226,20 @@
       <p>
          The more transparent a JavaScript templating solution is, the less impact it
          will have on your workflow for building web applications.&nbsp;
-         Templates with dna-engine don't just look like HTML, they are HTML (and they validate).
+         Templates with dna-dom don't just look like HTML, they are HTML (and they validate).
       </p>
       <p>
          JavaScript is easier to write, quicker to read, and more compact if it is focused on
          handling data not generating HTML.&nbsp;
          If you use a traditional server-side web framework, such as Grails, PHP, Rails, Django,
-         or Flask, dna-engine can simplify your HTML templates and improve performance by moving
+         or Flask, dna-dom can simplify your HTML templates and improve performance by moving
          processing to the client.&nbsp;
-         However, dna-engine is best as a
+         However, dna-dom is best as a
          <a href=https://jamstack.org class=external-site>Jamstack</a>
          web application running entirely on the client.
       </p>
       <p>
-         dna-engine is all about keeping it simple.
+         dna-dom is all about keeping it simple.
       </p>
    </section>
 

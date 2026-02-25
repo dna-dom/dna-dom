@@ -1,15 +1,15 @@
 {
-   "name": "dna-engine",
+   "name": "dna-dom",
    "version": "3.3.2",
    "description": "An uncomplicated user interface library for cloning semantic templates",
    "license": "MIT",
    "type": "module",
-   "module": "dist/dna-engine.js",
-   "browser": "dist/dna-engine.min.js",
-   "style": "dist/dna-engine.css",
-   "types": "dist/dna-engine.d.ts",
+   "module": "dist/dna-dom.js",
+   "browser": "dist/dna-dom.min.js",
+   "style": "dist/dna-dom.css",
+   "types": "dist/dna-dom.d.ts",
    "exports": {
-      ".": "./dist/dna-engine.js",
+      ".": "./dist/dna-dom.js",
       "./*": "./dist/*"
    },
    "files": [
@@ -17,11 +17,11 @@
    ],
    "repository": {
       "type": "git",
-      "url": "git+https://github.com/dna-engine/dna-engine.git"
+      "url": "git+https://github.com/dna-dom/dna-dom.git"
    },
-   "homepage": "https://dna-engine.org",
-   "bugs": "https://github.com/dna-engine/dna-engine/issues",
-   "docs": "https://dna-engine.org/docs",
+   "homepage": "https://dna-dom.org",
+   "bugs": "https://github.com/dna-dom/dna-dom/issues",
+   "docs": "https://dna-dom.org/docs",
    "author": "Center Key (https://centerkey.com)",
    "keywords": [
       "clone",
@@ -36,7 +36,7 @@
       "ui"
    ],
    "meta": {
-      "summary": "dna-engine is a lightweight easy-to-use UI library enabling developers to rapidly build maintainable JavaScript applications."
+      "summary": "dna-dom is a lightweight easy-to-use UI library enabling developers to rapidly build maintainable JavaScript applications."
    },
    "jshintConfig": {
       "esversion": 11,
@@ -74,8 +74,8 @@
    },
    "cliConfig": {
       "macros": {
-         "cdn-url": "https://cdn.jsdelivr.net/npm/dna-engine@{{package.version|minor-version}}/dist/",
-         "js-uri": "/dist/dna-engine.dev.js class=dev-mode"
+         "cdn-url": "https://cdn.jsdelivr.net/npm/dna-dom@{{package.version|minor-version}}/dist/",
+         "js-uri": "/dist/dna-dom.dev.js class=dev-mode"
       }
    },
    "runScriptsConfig": {
@@ -83,7 +83,7 @@
          "rimraf build dist docs"
       ],
       "minimize-visual": [
-         "replacer spec/visual.html spec --rename=visual.min.html --find=dist/dna-engine.dev.js --replacement=dist/dna-engine.min.js"
+         "replacer spec/visual.html spec --rename=visual.min.html --find=dist/dna-dom.dev.js --replacement=dist/dna-dom.min.js"
       ],
       "lint": [
          "jshint . --exclude-path .gitignore",
@@ -91,12 +91,12 @@
       ],
       "build": [
          "tsc",
-         "copy-file src/dna-engine.css           --folder build",
+         "copy-file src/dna-dom.css           --folder build",
          "copy-file src/manual/static/panel-nav.css --folder build"
       ],
       "dist": [
-         "esm-to-plain-js build/dna-engine.js       build/dna-engine.dev.js",
-         "uglifyjs build/dna-engine.dev.js --output build/dna-engine.min.js",
+         "esm-to-plain-js build/dna-dom.js       build/dna-dom.dev.js",
+         "uglifyjs build/dna-dom.dev.js --output build/dna-dom.min.js",
          "add-dist-header build dist"
       ],
       "publish": [
@@ -106,7 +106,7 @@
       ],
       "dev": [
          "tsc --watch --preserveWatchOutput",
-         "chokidar 'build/dna-engine.js' --command 'run-scripts publish'",
+         "chokidar 'build/dna-dom.js' --command 'run-scripts publish'",
          "browser-sync . --directory --startPath spec/visual.html --files dist spec"
       ],
       "build-manual": [
@@ -115,8 +115,8 @@
          "replacer    src/manual/root   --ext=.html build/manual/1-stage",
          "replacer    spec              --ext=.html build/manual/1-stage/spec --find=../dist/ --replacement={{macro:cdn-url}}",
          "copy-folder build/manual/1-stage build/manual/2-dev",
-         "replacer    build/manual/1-stage build/manual/2-dev --ext=.html '--regex=/https:.*dna-engine.min.js/m' --replacement={{macro:js-uri}}",
-         "rev-web-assets build/manual/1-stage --manifest --skip=social-media                  build/manual/3-prod --meta-content-base=https://dna-engine.org",
+         "replacer    build/manual/1-stage build/manual/2-dev --ext=.html '--regex=/https:.*dna-dom.min.js/m' --replacement={{macro:js-uri}}",
+         "rev-web-assets build/manual/1-stage --manifest --skip=social-media                  build/manual/3-prod --meta-content-base=https://dna-dom.org",
          "copy-file      src/manual/static/assets/bookmark-icon.png                  --folder build/manual/3-prod/graphics",
          "copy-file      src/manual/static/assets/dna-logo.png                       --folder build/manual/3-prod/graphics",
          "copy-file      src/manual/static/assets/mobile-home-screen.png             --folder build/manual/3-prod/graphics",

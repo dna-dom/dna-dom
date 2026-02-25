@@ -1,11 +1,11 @@
-📘 dna-engine Tutorial to Build a REST-driven Search Component 📘
+📘 dna-dom Tutorial to Build a REST-driven Search Component 📘
 An uncomplicated user interface library for cloning semantic templates
 
-1) Welcome to the dna-engine tutorial to build a REST-driven search component.  We will use dna-engine to power a simple book search tool that calls the Google Books API.
+1) Welcome to the dna-dom tutorial to build a REST-driven search component.  We will use dna-dom to power a simple book search tool that calls the Google Books API.
 
 2) Let's begin with some very basic boilerplate HTML to give us a valid web page as a starting point.  Now just after the <h1> header line, insert some plain old HTML for a search input box and a "Find" button.
 
-3) Then add the static HTML to mock up the search results.  The <section> tag with the "books" class is for a list of books, and we'll include one book stub inside the list so we can mockup and style the web page.  Each book in the search results will contain a thumbnail image for the book cover.  For the purpose of styling the mockup we'll temporarily use a sample book cover image from the dna-engine.org website.  Displayed adjacent to the thumbnail will be meta information showing the book title, publisher, and price.
+3) Then add the static HTML to mock up the search results.  The <section> tag with the "books" class is for a list of books, and we'll include one book stub inside the list so we can mockup and style the web page.  Each book in the search results will contain a thumbnail image for the book cover.  For the purpose of styling the mockup we'll temporarily use a sample book cover image from the dna-dom.org website.  Displayed adjacent to the thumbnail will be meta information showing the book title, publisher, and price.
 
 4) Let's verify that the web page displays in a browser.  It does display, but it's quite ugly.  So, let's add just enough CSS to make the style reasonable.  For simplicity we'll use the <style> tag to embed the CSS directly into the web page.  This CSS will display each book in a blue box with a thumbnail for the book cover on the left side and book metadata on the right side.
 
@@ -17,25 +17,25 @@ An uncomplicated user interface library for cloning semantic templates
 
 8) Convert the book HTML into a template by changing the class "book" to an ID (so the template has a name) and adding the class "dna-template".  Now designate where data is to be injected into the template.  Wrap field names in double tildes (~~) and use dot notation to reference nested data in the JSON.  For example, the hard-coded value of the image's "src" attribute is replaced with "~~volumeInfo.imageLinks.thumbnail~~".  The title becomes "~~volumeInfo.title~~", and the publisher becomes "~~volumeInfo.publisher~~".  Lastly, inject price with "~~saleInfo.listPrice.amount~~".
 
-9) So now our book template is done and next we'll load the dna-engine library.  A CDN (Content Delivery Network) makes it easy to load the CSS and JavaScript files.  First, load the CSS file for dna-engine.  Within the <head> section, insert a <link> tag to the stylesheet.  Then insert a <script> tag to load the dna-engine JavaScript.  Additionally, we'll load the fetchJson library.  fetchJson is a lightweight library that makes it trivial to call a REST endpoint when the data returned is JSON.
+9) So now our book template is done and next we'll load the dna-dom library.  A CDN (Content Delivery Network) makes it easy to load the CSS and JavaScript files.  First, load the CSS file for dna-dom.  Within the <head> section, insert a <link> tag to the stylesheet.  Then insert a <script> tag to load the dna-dom JavaScript.  Additionally, we'll load the fetchJson library.  fetchJson is a lightweight library that makes it trivial to call a REST endpoint when the data returned is JSON.
 
 10) Now for the fun part: writing the JavaScript to make the REST call and display the search results.  Add a <script> tag and define a variable to store the base URL for the Google Books API.  Then create a function named "findBooks()".  The first line of code reads the user's search terms by getting the value of the <input> element.
 
 11) Now that we have the URL and the search terms, we're ready to use fetchJson to make an HTTP GET request.  Call the "fetchJson.get()" function, and set the first parameter to the URL.  The second parameter is for the query string object.  In our case, we have one query parameter named "q" and its value will be the search terms entered by the user.  We tell fetchJson to send the data to the function named "handleResults()" once the REST call promise is fulfilled.
 
-12) Of course, now we need to define the "handleResults()" function.  The promise from fetchJson passes the response JSON into the callback function, and we are going to use that data to tell dna-engine to clone the "book" template -- one clone for each book.  The first parameter for the "dna.clone()" function is the name of the template and the second parameter is the data.  For the Google Books API, we use the "items" field because that is the array of books.  Options are passed as the third parameter.  We set "empty" to true to clear out any previous books before displaying the new books, and we set "fade" to true to smoothly fade in the new results.
+12) Of course, now we need to define the "handleResults()" function.  The promise from fetchJson passes the response JSON into the callback function, and we are going to use that data to tell dna-dom to clone the "book" template -- one clone for each book.  The first parameter for the "dna.clone()" function is the name of the template and the second parameter is the data.  For the Google Books API, we use the "items" field because that is the array of books.  Options are passed as the third parameter.  We set "empty" to true to clear out any previous books before displaying the new books, and we set "fade" to true to smoothly fade in the new results.
 
-13) To make this all work, we have to wire up the "findBooks()" function.  Use the "data-on-click" attribute to tell dna-engine to call the function.  Add the attribute to the <button> tag with a value of "findBooks" so that when the user clicks the "Find" button, the "findBooks()" function is called.
+13) To make this all work, we have to wire up the "findBooks()" function.  Use the "data-on-click" attribute to tell dna-dom to call the function.  Add the attribute to the <button> tag with a value of "findBooks" so that when the user clicks the "Find" button, the "findBooks()" function is called.
 
-14) Let's test it in the browser by searching for books about "spacex".  The first book returned by the REST call is titled "SpaceX" and costs $44.99.  Clicking the "Find" button works and is simple, but it makes for a cumbersome user experience.  We can leverage the smart update feature of dna-engine to replace the button with automatic live searching.
+14) Let's test it in the browser by searching for books about "spacex".  The first book returned by the REST call is titled "SpaceX" and costs $44.99.  Clicking the "Find" button works and is simple, but it makes for a cumbersome user experience.  We can leverage the smart update feature of dna-dom to replace the button with automatic live searching.
 
-15) Add the attribute "data-on-smart-update" directly to the <input> tag.  This causes the "findBooks()" function to be called whenever the user updates the input field.  Now the "Find" button is superfluous, and we can delete it.  Additionally, we can make the "findBooks()" function more robust.  dna-engine passes the element that was changed to the callback function, so the user's input can now be read with just "elem.value".
+15) Add the attribute "data-on-smart-update" directly to the <input> tag.  This causes the "findBooks()" function to be called whenever the user updates the input field.  Now the "Find" button is superfluous, and we can delete it.  Additionally, we can make the "findBooks()" function more robust.  dna-dom passes the element that was changed to the callback function, so the user's input can now be read with just "elem.value".
 
 16) Return to the browser and refresh the page to see the improved UI.  Let's search for "spacex" again.  Relevant books are displayed as the user types in the search terms.  Let's hop back to the code and step through the the process of going from user input to the REST call made by fetchJson to displaying search results in the browser.
 
-17) The "findBooks()" function is called when the user updates the text in the <input> field.  dna-engine passes the <input> element into the "findBooks()" function where we read the value of the element.  Then the URL plus the "q" parameter are passed into the "fetchJson.get()" function to make the REST call to the Google Books API.  And the "handleResults()" function is called once the JSON response is received.  That data is passed into the "dna.clone()" function to make copies of the "book" template.  And that's all you need to make a REST-driven search component.
+17) The "findBooks()" function is called when the user updates the text in the <input> field.  dna-dom passes the <input> element into the "findBooks()" function where we read the value of the element.  Then the URL plus the "q" parameter are passed into the "fetchJson.get()" function to make the REST call to the Google Books API.  And the "handleResults()" function is called once the JSON response is received.  That data is passed into the "dna.clone()" function to make copies of the "book" template.  And that's all you need to make a REST-driven search component.
 
-18) Visit the dna-engine.org website for more information.  If you have any questions, follow the link to the GitHub project and submit an issue with your question.
+18) Visit the dna-dom.org website for more information.  If you have any questions, follow the link to the GitHub project and submit an issue with your question.
 
 Fields:
    * volumeInfo.title
@@ -43,6 +43,6 @@ Fields:
    * volumeInfo.imageLinks.thumbnail
    * saleInfo.listPrice.amount
 
-https://dna-engine.org/tutorial
+https://dna-dom.org/tutorial
 License under Creative Commons CC-BY 4.0
 This video is not monetized.

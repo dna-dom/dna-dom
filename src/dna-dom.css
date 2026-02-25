@@ -1,4 +1,4 @@
-/* dna-engine ~~ MIT License */
+/* dna-dom ~~ MIT License */
 
 .dna-template, .dna-panels >*:not(.displayed), [data-placeholder], .dna-hide { display: none; }
 .dna-menu .dna-menu-item, [data-on-click], [data-href] { cursor: pointer; }

@@ -10,17 +10,17 @@
    <meta charset=utf-8>
    <meta name=viewport                   content="width=device-width, initial-scale=1">
    <meta name=robots                     content="index, follow">
-   <meta name=description                content="dna-engine ~~ {{package.description}}">
-   <meta name=apple-mobile-web-app-title content="dna-engine">
-   <title>dna-engine ~~ {{package.description}}</title>
-   <link rel=icon             href=https://dna-engine.org/graphics/bookmark-icon.png>
-   <link rel=apple-touch-icon href=https://dna-engine.org/graphics/mobile-home-screen.png>
+   <meta name=description                content="dna-dom ~~ {{package.description}}">
+   <meta name=apple-mobile-web-app-title content="dna-dom">
+   <title>dna-dom ~~ {{package.description}}</title>
+   <link rel=icon             href=https://dna-dom.org/graphics/bookmark-icon.png>
+   <link rel=apple-touch-icon href=https://dna-dom.org/graphics/mobile-home-screen.png>
    <link rel=preconnect       href=https://fonts.googleapis.com>
    <link rel=preconnect       href=https://fonts.gstatic.com crossorigin>
    <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@{{package.devDependencies.-fortawesome-fontawesome-free|version}}/css/all.min.css>
-   <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/dna-engine@{{package.version|minor-version}}/dist/dna-engine.css>
+   <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/dna-dom@{{package.version|minor-version}}/dist/dna-dom.css>
    <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/web-ignition@{{package.devDependencies.web-ignition|version}}/dist/reset.min.css>
-   <link rel=stylesheet       href=https://dna-engine.org/style.css>
+   <link rel=stylesheet       href=https://dna-dom.org/style.css>
    <style>
       body                    { text-align: center; color: dimgray; padding: 20px 140px; }
       body >header figure     { display: inline-block; max-width: 200px; }
@@ -30,7 +30,7 @@
       body >main >p a         { font-size: 1.4rem; }
       @media (max-width: 667px) { body { padding: 10px; } }
    </style>
-   <script defer src=https://cdn.jsdelivr.net/npm/dna-engine@{{package.version|minor-version}}/dist/dna-engine.min.js></script>
+   <script defer src=https://cdn.jsdelivr.net/npm/dna-dom@{{package.version|minor-version}}/dist/dna-dom.min.js></script>
    <script defer src=https://cdn.jsdelivr.net/npm/fetch-json@{{package.devDependencies.fetch-json|version}}/dist/fetch-json.min.js></script>
    <script defer src=https://cdn.jsdelivr.net/npm/web-ignition@{{package.devDependencies.web-ignition|version}}/dist/lib-x.min.js></script>
    <script data-on-load=showVersion>
@@ -41,36 +41,36 @@
 <body>
 
 <header>
-   <figure data-href=https://dna-engine.org>
-      <img src=https://dna-engine.org/graphics/dna-logo.png alt=logo>
+   <figure data-href=https://dna-dom.org>
+      <img src=https://dna-dom.org/graphics/dna-logo.png alt=logo>
    </figure>
-   <h1>dna-engine</h1>
+   <h1>dna-dom</h1>
    <h2>{{package.description}}</h2>
-   <a id=fork-me href=https://github.com/dna-engine/dna-engine>Fork me on GitHub</a>
+   <a id=fork-me href=https://github.com/dna-dom/dna-dom>Fork me on GitHub</a>
 </header>
 
 <main>
    <nav>
-      <a href=https://github.com/dna-engine/dna-engine/blob/main/LICENSE.txt>
+      <a href=https://github.com/dna-dom/dna-dom/blob/main/LICENSE.txt>
          <img src=https://img.shields.io/badge/License-MIT-blue.svg alt=license></a>
-      <a href=https://www.npmjs.com/package/dna-engine>
-         <img src=https://img.shields.io/npm/v/dna-engine.svg alt=npm></a>
-      <a href=https://www.jsdelivr.com/package/npm/dna-engine>
-         <img src=https://data.jsdelivr.com/v1/package/npm/dna-engine/badge alt=downloads></a>
-      <a href=https://github.com/dna-engine/dna-engine/actions/workflows/run-spec-on-push.yaml>
-         <img src=https://github.com/dna-engine/dna-engine/actions/workflows/run-spec-on-push.yaml/badge.svg alt=build></a>
+      <a href=https://www.npmjs.com/package/dna-dom>
+         <img src=https://img.shields.io/npm/v/dna-dom.svg alt=npm></a>
+      <a href=https://www.jsdelivr.com/package/npm/dna-dom>
+         <img src=https://data.jsdelivr.com/v1/package/npm/dna-dom/badge alt=downloads></a>
+      <a href=https://github.com/dna-dom/dna-dom/actions/workflows/run-spec-on-push.yaml>
+         <img src=https://github.com/dna-dom/dna-dom/actions/workflows/run-spec-on-push.yaml/badge.svg alt=build></a>
    </nav>
    <b>Project:</b>
    <p>
-      <a href=https://dna-engine.org>https://dna-engine.org</a>
+      <a href=https://dna-dom.org>https://dna-dom.org</a>
    </p>
    <p>
-      <b>dna-engine</b> is an easy-to-use UI library enabling developers to rapidly build
-      maintainable JavaScript applications.&nbsp; You write semantic templates and then dna-engine
+      <b>dna-dom</b> is an easy-to-use UI library enabling developers to rapidly build
+      maintainable JavaScript applications.&nbsp; You write semantic templates and then dna-dom
       converts your JSON data into dynamically generated DOM elements.
    </p>
    <p>
-      dna-engine v<span id=version-number></span> &mdash; open source under the MIT License.
+      dna-dom v<span id=version-number></span> &mdash; open source under the MIT License.
    </p>
 </main>
 

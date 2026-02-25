@@ -1,5 +1,5 @@
-// dna-engine Website ~~ dna-engine.org ~~ MIT
-// Copyright (c) 2013-2026 Individual contributors to dna-engine
+// dna-dom Website ~~ dna-dom.org ~~ MIT
+// Copyright (c) 2013-2026 Individual contributors to dna-dom
 
 const app = {
    setup() {

@@ -1,4 +1,4 @@
-// dna-engine
+// dna-dom
 // Mocha Specification Suite
 
 // Imports
@@ -10,9 +10,9 @@ import assert from 'assert';
 import fs     from 'fs';
 
 // Setup
-import { dna } from '../dist/dna-engine.js?cache-bust=2';
+import { dna } from '../dist/dna-dom.js?cache-bust=2';
 const pkg =      JSON.parse(fs.readFileSync('package.json', 'utf-8'));
-const mode =     { type: 'ES Module', file: 'dist/dna-engine.js' };
+const mode =     { type: 'ES Module', file: 'dist/dna-dom.js' };
 const filename = import.meta.url.replace(/.*\//, '');  //jshint ignore:line
 const dom =      new JSDOM(html);
 const setupEnv = (done) => dna.initGlobal(dom.window) && done();
@@ -162,7 +162,7 @@ describe('Correct error is thrown', () => {
 
    it('when dna.getModel() is called with an invalid template name', () => {
       const makeBogusCall = () => dna.getModel('wrong-template-name');
-      const exception =     { message: '[dna-engine] Invalid element --> "wrong-template-name"' };
+      const exception =     { message: '[dna-dom] Invalid element --> "wrong-template-name"' };
       assert.throws(makeBogusCall, exception);
       });
 

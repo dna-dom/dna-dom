@@ -1,4 +1,4 @@
-# dna-engine ~~ dna-engine.org ~~ MIT
+# dna-dom ~~ dna-dom.org ~~ MIT
 # Send all API calls to the REST controller (ex: /api/books/021 --> /api/books/index.php)
 
 # Following works on Apache but not on LiteSpeed Web Server.

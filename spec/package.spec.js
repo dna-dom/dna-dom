@@ -1,4 +1,4 @@
-// dna-engine
+// dna-dom
 // Mocha Specification Suite
 
 // Imports
@@ -7,9 +7,9 @@ import { JSDOM } from 'jsdom';
 import fs from 'fs';
 
 // Setup
-import { dna } from '../dist/dna-engine.js?cache-bust=5';
+import { dna } from '../dist/dna-dom.js?cache-bust=5';
 const pkg =      JSON.parse(fs.readFileSync('package.json', 'utf-8'));
-const mode =     { type: 'ES Module', file: 'dist/dna-engine.js' };
+const mode =     { type: 'ES Module', file: 'dist/dna-dom.js' };
 const filename = import.meta.url.replace(/.*\//, '');  //jshint ignore:line
 const dom =      new JSDOM('');
 const setupEnv = (done) => dna.initGlobal(dom.window) && done();
@@ -24,11 +24,11 @@ describe('The "dist" folder', () => {
    it('contains the correct files', () => {
       const actual = fs.readdirSync('dist').sort();
       const expected = [
-         'dna-engine.css',
-         'dna-engine.d.ts',
-         'dna-engine.dev.js',
-         'dna-engine.js',
-         'dna-engine.min.js',
+         'dna-dom.css',
+         'dna-dom.d.ts',
+         'dna-dom.dev.js',
+         'dna-dom.js',
+         'dna-dom.min.js',
          'panel-nav.css',
          ];
       assertDeepStrictEqual(actual, expected);

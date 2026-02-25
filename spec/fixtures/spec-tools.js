@@ -1,4 +1,4 @@
-// dna-engine
+// dna-dom
 // Specification Tools
 
 const grabText = (dom, selector) =>
