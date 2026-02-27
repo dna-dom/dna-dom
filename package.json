@@ -110,17 +110,21 @@
          "browser-sync . --directory --startPath spec/visual.html --files dist spec"
       ],
       "build-manual": [
+         "// Stap #1: Stage",
          "copy-folder src/manual/static             build/manual/1-stage",
          "replacer    src/manual/static --ext=.html build/manual/1-stage",
          "replacer    src/manual/root   --ext=.html build/manual/1-stage",
          "replacer    spec              --ext=.html build/manual/1-stage/spec --find=../dist/ --replacement={{macro:cdn-url}}",
+         "// Step #2: Dev",
          "copy-folder build/manual/1-stage build/manual/2-dev",
          "replacer    build/manual/1-stage build/manual/2-dev --ext=.html '--regex=/https:.*dna-dom.min.js/m' --replacement={{macro:js-uri}}",
-         "rev-web-assets build/manual/1-stage --manifest --skip=social-media                  build/manual/3-prod --meta-content-base=https://dna-dom.org",
-         "copy-file      src/manual/static/assets/bookmark-icon.png                  --folder build/manual/3-prod/graphics",
-         "copy-file      src/manual/static/assets/dna-logo.png                       --folder build/manual/3-prod/graphics",
-         "copy-file      src/manual/static/assets/mobile-home-screen.png             --folder build/manual/3-prod/graphics",
-         "copy-file      src/manual/static/assets/social-media/sample-book-cover.jpg --folder build/manual/3-prod/graphics"
+         "// Step #3: Prod",
+         "rev-web-assets build/manual/1-stage --manifest --skip=social-media             build/manual/3-prod --meta-content-base=https://dna-dom.org",
+         "copy-file src/manual/static/assets/bookmark-icon.png                  --folder build/manual/3-prod/graphics",
+         "copy-file src/manual/static/assets/dna-logo.png                       --folder build/manual/3-prod/graphics",
+         "copy-file src/manual/static/assets/mobile-home-screen.png             --folder build/manual/3-prod/graphics",
+         "copy-file src/manual/static/assets/social-media/sample-book-cover.jpg --folder build/manual/3-prod/graphics",
+         "replacer --virtual-input . --rename=robots.txt                                 build/manual/3-prod --content=#{{space}}Allow{{space}}bots"
       ]
    },
    "scripts": {
@@ -132,7 +136,7 @@
       "validate-html": "html-validator --default-rules spec docs build/manual/3-prod"
    },
    "devDependencies": {
-      "@eslint/js": "~9.39",
+      "@eslint/js": "~10.0",
       "@fortawesome/fontawesome-free": "~7.2",
       "@types/node": "~25.3",
       "add-dist-header": "~1.6",
@@ -141,7 +145,7 @@
       "chokidar-cli": "~3.0",
       "copy-file-util": "~1.3",
       "copy-folder-util": "~1.2",
-      "eslint": "~9.39",
+      "eslint": "~10.0",
       "esm-to-plain-js": "~1.2",
       "fetch-json": "~3.3",
       "highlight.js": "~11.11",

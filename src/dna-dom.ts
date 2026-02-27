@@ -339,6 +339,7 @@ const dnaDom = {
       return elem;
       },
    createCustom(tag: string, options?: DnaDomCreateOptions) {  //DEPRECATED
+      console.warn('[dna-dom] Warning: dna.dom.createCustom() is deprecated. Use dna.dom.create() instead.', tag);
       return dna.dom.create(<keyof HTMLElementTagNameMap>tag, options);
       },
    create<K extends keyof HTMLElementTagNameMap>(tag: K, options?: DnaDomCreateOptions):
