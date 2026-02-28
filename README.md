@@ -10,7 +10,8 @@ _An uncomplicated user interface library for cloning semantic templates_
 [![Publish Website](https://github.com/dna-dom/dna-dom/actions/workflows/publish-website.yaml/badge.svg)](https://github.com/dna-dom/dna-dom/actions/workflows/publish-website.yaml)
 
 dna-dom is a lightweight easy-to-use UI library enabling developers to rapidly build maintainable
-JavaScript applications.
+JavaScript applications.&nbsp;
+The project name stems from its primary function of cloning DOM templates.&nbsp;
 
 ## A) Bookstore Example
 Designate templates with the `dna-template` class, and put the templates directly into the HTML

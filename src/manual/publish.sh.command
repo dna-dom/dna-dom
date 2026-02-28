@@ -32,7 +32,8 @@ buildHtmlFiles() {
    folderListing="$projectHome/../^gists/folder-listing.php/folder-listing.php"
    test -f $folderListing && cp -v $folderListing src/manual/static/api/index.php
    npm run build-manual
-   npm run validate-html
+   skipMsg="Skipping HTML validation."
+   [ "$w3cHtmlValidator" = "dry-run" ] && echo -e "\n*** $skipMsg" || npm run validate-html
    echo
    }
 

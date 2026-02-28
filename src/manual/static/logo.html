@@ -44,11 +44,11 @@
          }
       #logo-canvas >span:nth-child(1) {
          top: 48%;
-         left: 43%;
+         left: 44%;
          }
       #logo-canvas >span:nth-child(2) {
          top: 72%;
-         left: 55.25%;
+         left: 49%;
          }
       #logo-canvas .circle {
          position: absolute;
@@ -65,8 +65,20 @@
       .repository figure {
          margin-bottom: 30px;
          }
+      :root {
+         --checkerboardPattern: conic-gradient(
+            lightgray  90deg,
+            darkgray   90deg 180deg,
+            lightgray 180deg 270deg,
+            darkgray  270deg)
+         }
       .repository figure img {
-         border: 1px solid firebrick;
+         background: var(--checkerboardPattern);
+         background-size: 15px 15px;
+         outline: 3px solid black;
+         }
+      .repository figure img:hover {
+         background: black;
          }
       .repository figure figcaption code {
          display: block;
@@ -127,7 +139,7 @@
    <code id=circle-data></code>
    <p>
       Create full logo (<code>dna-logo-full.png</code>)
-      by capturing screen with full zoom and cropping to no excess padding.
+      by capturing screen with full zoom and cropping to no excess padding at 1299&times;866.
    </p>
 
    <div class=repository>
@@ -135,7 +147,7 @@
          <figcaption>
             <code>dna-logo.png</code>
             (600 wide / no padding / transparent)
-            <i>duplicate full logo &rarr; crop 3:2, Instant Alpha, resize</i>
+            <i>duplicate full logo &rarr; crop 3:2, Instant Alpha, resize to 600&times;400</i>
          </figcaption>
          <img src=assets/dna-logo.png alt=logo>
       </figure>
