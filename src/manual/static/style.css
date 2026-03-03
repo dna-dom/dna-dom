@@ -369,29 +369,25 @@ code.block-indent {
    }
 
 /* X */
-.x-corp {
-   display: inline-block;
-   text-align: center;
+:root { --xCorpBlue: #1da1f2; }
+figure.x-corp {
+   display: inline-grid;
+   grid-template-columns: 1fr 1fr;
+   column-gap: 10px;
+   font-size: 0.9rem;
+   color: var(--xCorpBlue);
    }
-.x-corp a {
-   font-size: 0.8rem;
+figure.x-corp >a:first-child {
+   grid-column-end: span 2;
    }
-.x-corp a i.font-icon {
-   display: block;
-   font-size: 1.4rem;
-   line-height: 0.6em;
-   margin: 0px auto;
-   opacity: 1;
+figure.x-corp a {
+   border: none;
    }
-.x-corp a,
-.x-corp a:visited,
-a.x-corp,
-a.x-corp:visited {
-   color: #1da1f2;  /* X Corp blue */
+figure.x-corp a:visited {
+   color: var(--xCorpBlue);
    }
-.x-corp a:hover,
-a.x-corp:hover {
-   color: royalblue;
+figure.x-corp a:not(:first-child):hover {
+   color: white;
    }
 
 /* Highlight.js (hljs-enhance) */
