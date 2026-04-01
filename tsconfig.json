@@ -1,14 +1,16 @@
 {
    "compilerOptions": {
-      "target": "ES2022",
-      "module": "ES2022",
-      "moduleResolution": "node",
-      "declaration": true,
+      "rootDir": "src",
       "outDir": "build",
-      "newLine": "lf",
-      "strict": true,
-      "alwaysStrict": true,
+      "declaration": true,
+      "removeComments": true,
+      "skipLibCheck": true,
       "esModuleInterop": true,
+      "newLine": "lf",
+      "target": "ES2022",
+      "module": "nodenext",
+      "moduleResolution": "nodenext",
+      "types": ["node"],
       "exactOptionalPropertyTypes": true,
       "forceConsistentCasingInFileNames": true,
       "noFallthroughCasesInSwitch": true,
@@ -17,6 +19,6 @@
       "noImplicitThis": true,
       "noUncheckedIndexedAccess": true,
       "noUnusedLocals": true,
-      "removeComments": true
+      "strictNullChecks": true
    }
 }

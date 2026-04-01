@@ -264,7 +264,7 @@ const dnaBrowser = {
       const polyfill = (): NavigatorUAData => {
          const brandEntry = globalThis.navigator.userAgent.split(' ').pop()?.split('/') ?? [];
          const hasTouch =   !!navigator.maxTouchPoints;
-         const platform =   globalThis.navigator.platform;  //eslint-disable-line
+         const platform =   globalThis.navigator.platform;
          const mac =        hasTouch ? 'iOS' : 'macOS';
          const platforms: { [platform: string]: string} =
             { 'MacIntel': mac, 'Win32': 'Windows', 'iPhone': 'iOS', 'iPad': 'iOS' };
@@ -937,12 +937,12 @@ const dnaUtil = {
          dna.util.assign(<DnaDataObject>dataObj[name]!, fields.slice(1).join('.'), value);
       return dataObj;
       },
-   printf: (format: string, ...values: unknown[]): string => {
+   printf(format: string, ...values: unknown[]): string {
       // Builds a formatted string by replacing the format specifiers with the supplied arguments.
       // Usage:
       //    dna.util.printf('Items in %s: %s', 'cart', 3) === 'Items in cart: 3';
-      return values.reduce((output: string, value: unknown) =>
-         output.replace(/%s/, String(value)), format);
+      const insertArg = (output: string, value: unknown) => output.replace(/%s/, String(value));
+      return <string>values.reduce(insertArg, format);  //eslint-disable-line @typescript-eslint/no-unnecessary-type-assertion
       },
    round(value: number, precision: number) {
       // Rounds a number to the specified digits of precision.
@@ -1858,7 +1858,7 @@ const dnaCore = {
       const countsMap = <DnaCountsMap>containerState.dnaCountsMap;
       const count =     countsMap[name];
       countsMap[name] = !count ? 1 : count + 1;
-      dna.core.inject(clone, data, countsMap[name]! - 1, settings);  //eslint-disable-line
+      dna.core.inject(clone, data, countsMap[name] - 1, settings);
       const intoUnwrapped = () => {
          const allClones =  dna.dom.filterByClass(container.children, dna.name.clone);
          const firstClone = () => {
@@ -2055,7 +2055,7 @@ const dna = {
       return !!dna.template.db[name] ||
          globalThis.document.querySelector('.dna-template#' + name) !== null;
       },
-   getModel<T>(elem: Element, options?: Partial<DnaSettingsGetModel>): T | undefined {  //eslint-disable-line
+   getModel<T>(elem: Element, options?: Partial<DnaSettingsGetModel>): T | undefined {  //eslint-disable-line @typescript-eslint/no-unnecessary-type-parameters
       // Returns the underlying data of the clone.
       return <T>dna.dom.state(dna.getClone(elem, options)).dnaModel;
       },

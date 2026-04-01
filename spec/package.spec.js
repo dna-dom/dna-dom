@@ -4,7 +4,7 @@
 // Imports
 import { assertDeepStrictEqual } from 'assert-deep-strict-equal';
 import { JSDOM } from 'jsdom';
-import fs from 'fs';
+import fs from 'node:fs';
 
 // Setup
 import { dna } from '../dist/dna-dom.js?cache-bust=5';

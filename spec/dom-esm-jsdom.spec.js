@@ -4,10 +4,12 @@
 // Imports
 import { assertDeepStrictEqual } from 'assert-deep-strict-equal';
 import { JSDOM } from 'jsdom';
+import assert from 'node:assert';
+import fs     from 'node:fs';
+
+// Fixtures
 import { grabText, grabAllText } from './fixtures/spec-tools.js';
 import { html, bookCatalog } from './fixtures/mock-data.js';
-import assert from 'assert';
-import fs     from 'fs';
 
 // Setup
 import { dna } from '../dist/dna-dom.js?cache-bust=2';

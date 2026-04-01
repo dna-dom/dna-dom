@@ -30,7 +30,7 @@ buildHtmlFiles() {
    cd $projectHome
    echo "Tasks:"
    folderListing="$projectHome/../^gists/folder-listing.php/folder-listing.php"
-   test -f $folderListing && cp -v $folderListing src/manual/static/api/index.php
+   [ -f $folderListing ] && cp -v $folderListing src/manual/static/api/index.php
    npm run build-manual
    skipMsg="Skipping HTML validation."
    [ "$w3cHtmlValidator" = "dry-run" ] && echo -e "\n*** $skipMsg" || npm run validate-html
@@ -48,9 +48,9 @@ publishWebFiles() {
       mkdir $publishFolder
       cp -R build/manual/3-prod/* $publishFolder
       ls -o $publishSite | grep dna
-      test -x "$(which tree)" && tree $publishFolder
+      [ -x "$(which tree)" ] && tree $publishFolder
       }
-   test -w $publishSite && publish
+   [ -w $publishSite ] && publish
    }
 
 interactiveServer() {
