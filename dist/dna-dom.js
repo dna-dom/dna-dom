@@ -1,4 +1,4 @@
-//! dna-dom v3.3.3 ~~ https://dna-dom.org ~~ MIT License
+//! dna-dom v3.3.4 ~~ https://dna-dom.org ~~ MIT License
 
 const dnaName = {
     animating: 'dna-animating',
@@ -118,6 +118,7 @@ const dnaDom = {
         return elem;
     },
     createCustom(tag, options) {
+        console.warn('[dna-dom] Warning: dna.dom.createCustom() is deprecated. Use dna.dom.create() instead.', tag);
         return dna.dom.create(tag, options);
     },
     create(tag, options) {
@@ -647,8 +648,9 @@ const dnaUtil = {
             dna.util.assign(dataObj[name], fields.slice(1).join('.'), value);
         return dataObj;
     },
-    printf: (format, ...values) => {
-        return values.reduce((output, value) => output.replace(/%s/, String(value)), format);
+    printf(format, ...values) {
+        const insertArg = (output, value) => output.replace(/%s/, String(value));
+        return values.reduce(insertArg, format);
     },
     round(value, precision) {
         return Number(value.toExponential(precision - 1));
@@ -658,13 +660,13 @@ const dnaUtil = {
         const emptyArray = () => value instanceof Array && value.length === 0;
         return !!value && !emptyArray() && !falseyStr();
     },
-    toCamel: (kebabStr) => {
+    toCamel(kebabStr) {
         const hump = (match, letter) => letter.toUpperCase();
-        return String(kebabStr).replace(/-(.)/g, hump);
+        return kebabStr.replace(/-(.)/g, hump);
     },
-    toKebab: (camelStr) => {
+    toKebab(camelStr) {
         const dash = (word) => '-' + word.toLowerCase();
-        return String(camelStr).replace(/([A-Z]+)/g, dash).replace(/\s|^-/g, '');
+        return camelStr.replace(/([A-Z]+)/g, dash).replace(/\s|^-/g, '');
     },
     value(data, field) {
         const notFound = data === null || data === undefined || field === undefined;
@@ -903,7 +905,7 @@ const dnaCompile = {
     },
     field(elem) {
         dna.compile.setupNucleotide(elem);
-        const text = String(elem.textContent);
+        const text = elem.textContent;
         const field = text.replace(dna.compile.regex.dnaBasePairs, '').trim();
         dna.dom.state(elem).dnaField = field;
         dna.compile.addFieldClass(elem);
@@ -1287,7 +1289,7 @@ const dnaCore = {
                     field === '[count]' ? index + 1 :
                         dna.util.value(data, field);
             if (value !== null && value !== elem.value)
-                elem.value = String(value);
+                elem.value = value;
         };
         const setProperty = (elem, property, state) => {
             dna.core.assert(['checked', 'disabled'].includes(property), 'Invalid element property type', property);
@@ -1305,7 +1307,10 @@ const dnaCore = {
             const attrs = rules.attrs;
             const inject = (key, parts) => {
                 const field = parts[1];
-                const core = field === 0 ? index : field === 1 ? index + 1 : field === 2 ? data : dna.util.value(data, field);
+                const core = field === 0 ? index :
+                    field === 1 ? index + 1 :
+                        field === 2 ? data :
+                            dna.util.value(data, field);
                 const value = [parts[0], core, parts[2]].join('');
                 const formatted = rules.formatter ? rules.formatter(value, data) : value;
                 elem.setAttribute(key, formatted);
@@ -1496,7 +1501,7 @@ const dnaCore = {
     },
 };
 const dna = {
-    version: '3.3.3',
+    version: '3.3.4',
     clone(name, data, options) {
         const defaults = {
             callback: null,
@@ -1612,7 +1617,7 @@ const dna = {
             else if (inputElem.matches('input[type=radio]'))
                 elem.checked = !!value;
             else if (inputElem.matches('input, select, textarea'))
-                elem.value = String(value);
+                elem.value = value;
             const model = dna.getModel(inputElem);
             model[field] = value;
         };

@@ -1,4 +1,4 @@
-//! dna-dom v3.3.3 ~~ https://dna-dom.org ~~ MIT License
+//! dna-dom v3.3.4 ~~ https://dna-dom.org ~~ MIT License
 
 export type Json = string | number | boolean | null | undefined | JsonObject | Json[];
 export type JsonObject = {
@@ -327,7 +327,7 @@ declare const dna: {
         };
         cloneState(clone: Element): Element;
         removeState(elem: Element): Element;
-        createCustom(tag: string, options?: DnaDomCreateOptions): HTMLElement | HTMLCanvasElement | HTMLImageElement | HTMLVideoElement | HTMLAnchorElement | HTMLScriptElement | HTMLEmbedElement | HTMLFormElement | HTMLHeadElement | HTMLAreaElement | HTMLObjectElement | HTMLLinkElement | HTMLMapElement | HTMLInputElement | HTMLBaseElement | HTMLDataElement | HTMLTimeElement | HTMLProgressElement | HTMLTrackElement | HTMLSourceElement | HTMLButtonElement | HTMLAudioElement | HTMLQuoteElement | HTMLBodyElement | HTMLBRElement | HTMLTableCaptionElement | HTMLTableColElement | HTMLDataListElement | HTMLModElement | HTMLDetailsElement | HTMLDialogElement | HTMLDivElement | HTMLDListElement | HTMLFieldSetElement | HTMLHeadingElement | HTMLHRElement | HTMLHtmlElement | HTMLIFrameElement | HTMLLabelElement | HTMLLegendElement | HTMLLIElement | HTMLMenuElement | HTMLMetaElement | HTMLMeterElement | HTMLOListElement | HTMLOptGroupElement | HTMLOptionElement | HTMLOutputElement | HTMLParagraphElement | HTMLPictureElement | HTMLPreElement | HTMLSelectElement | HTMLSlotElement | HTMLSpanElement | HTMLStyleElement | HTMLTableElement | HTMLTableSectionElement | HTMLTableCellElement | HTMLTemplateElement | HTMLTextAreaElement | HTMLTitleElement | HTMLTableRowElement | HTMLUListElement;
+        createCustom(tag: string, options?: DnaDomCreateOptions): HTMLElement | HTMLDivElement | HTMLObjectElement | HTMLAnchorElement | HTMLAreaElement | HTMLAudioElement | HTMLBaseElement | HTMLQuoteElement | HTMLBodyElement | HTMLBRElement | HTMLButtonElement | HTMLCanvasElement | HTMLTableCaptionElement | HTMLTableColElement | HTMLDataElement | HTMLDataListElement | HTMLModElement | HTMLDetailsElement | HTMLDialogElement | HTMLDListElement | HTMLEmbedElement | HTMLFieldSetElement | HTMLFormElement | HTMLHeadingElement | HTMLHeadElement | HTMLHRElement | HTMLHtmlElement | HTMLIFrameElement | HTMLImageElement | HTMLInputElement | HTMLLabelElement | HTMLLegendElement | HTMLLIElement | HTMLLinkElement | HTMLMapElement | HTMLMenuElement | HTMLMetaElement | HTMLMeterElement | HTMLOListElement | HTMLOptGroupElement | HTMLOptionElement | HTMLOutputElement | HTMLParagraphElement | HTMLPictureElement | HTMLPreElement | HTMLProgressElement | HTMLScriptElement | HTMLSelectElement | HTMLSlotElement | HTMLSourceElement | HTMLSpanElement | HTMLStyleElement | HTMLTableElement | HTMLTableSectionElement | HTMLTableCellElement | HTMLTemplateElement | HTMLTextAreaElement | HTMLTimeElement | HTMLTitleElement | HTMLTableRowElement | HTMLTrackElement | HTMLUListElement | HTMLVideoElement;
         create<K extends keyof HTMLElementTagNameMap>(tag: K, options?: DnaDomCreateOptions): HTMLElementTagNameMap[K];
         hasClass(elems: DnaElems, className: string): boolean;
         toggleClass(elem: Element, className: string, state?: boolean): Element;
@@ -407,11 +407,11 @@ declare const dna: {
         apply<T>(fn: string | DnaCallbackFn<T> | DnaInitializerFn, params: unknown[]): unknown;
         getFn(name: string): unknown;
         assign(data: DnaDataObject, field: string, value: Json): DnaDataObject;
-        printf: (format: string, ...values: unknown[]) => string;
+        printf(format: string, ...values: unknown[]): string;
         round(value: number, precision: number): number;
         realTruth: (value: unknown) => boolean;
-        toCamel: (kebabStr: string) => string;
-        toKebab: (camelStr: string) => string;
+        toCamel(kebabStr: string): string;
+        toKebab(camelStr: string): string;
         value(data: unknown, field: string | string[]): unknown;
         isObj(value: unknown): boolean;
         timestamp(date?: number): string;
