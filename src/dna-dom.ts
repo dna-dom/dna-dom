@@ -958,19 +958,19 @@ const dnaUtil = {
       const emptyArray = () => value instanceof Array && value.length === 0;
       return !!value && !emptyArray() && !falseyStr();
       },
-   toCamel: (kebabStr: string): string => {
+   toCamel(kebabStr: string): string {
       // Converts a kebab-case string (a code made of lowercase letters and dashes) to camelCase.
       // Example:
       //    dna.util.toCamel('ready-set-go') === 'readySetGo'
       const hump = (match: string, letter: string): string => letter.toUpperCase();
-      return String(<unknown>kebabStr).replace(/-(.)/g, hump);
+      return kebabStr.replace(/-(.)/g, hump);
       },
-   toKebab: (camelStr: string): string => {
+   toKebab(camelStr: string): string {
       // Converts a camelCase string to kebab-case (a code made of lowercase letters and dashes).
       // Example:
       //    dna.util.toKebab('readySetGo') === 'ready-set-go'
       const dash = (word: string) => '-' + word.toLowerCase();
-      return String(<unknown>camelStr).replace(/([A-Z]+)/g, dash).replace(/\s|^-/g, '');
+      return camelStr.replace(/([A-Z]+)/g, dash).replace(/\s|^-/g, '');
       },
    value(data: unknown, field: string | string[]): unknown {
       // Returns the value of the field from the data object.
@@ -1297,7 +1297,7 @@ const dnaCompile = {
       //    <textarea>~~address~~</textarea>  ==>
       //       <textarea class=dna-nucleotide></p>  <!-- state: dnaField=address, rules: { val: true } -->
       dna.compile.setupNucleotide(elem);
-      const text = String(<unknown>elem.textContent);
+      const text =  elem.textContent;
       const field = text.replace(dna.compile.regex.dnaBasePairs, '').trim();
       dna.dom.state(elem).dnaField = field;
       dna.compile.addFieldClass(elem);
@@ -1461,7 +1461,7 @@ const dnaCompile = {
       dna.core.assert(elem, 'Template not found', name);
       const initSubs = (elem: Element) => dna.compile.setElemRule(elem, 'subs', []);
       const saveName = (elem: Element) => {
-         dna.dom.state(elem).dnaRules = <DnaRules>{ template: elem.id, subs: [] };
+         dna.dom.state(elem).dnaRules = { template: elem.id, subs: [] };
          elem.removeAttribute('id');
          initSubs(elem);
          return elem;
@@ -1728,12 +1728,13 @@ const dnaCore = {
             elem.textContent = formatted();
          };
       const injectValue = (elem: Element, field: string) => {
-         const value = field === '[value]' ? data :
+         const value =
+            field === '[value]' ? data :
             field === '[index]' ? index :
             field === '[count]' ? index + 1 :
             dna.util.value(data, field);
          if (value !== null && value !== (<HTMLInputElement>elem).value)
-            (<HTMLInputElement>elem).value = String(<unknown>value);
+            (<HTMLInputElement>elem).value = <string>value;
          };
       const setProperty = (elem: HTMLInputElement, property: string, state: boolean): HTMLInputElement => {
          dna.core.assert(['checked', 'disabled'].includes(property), 'Invalid element property type', property);
@@ -1753,8 +1754,12 @@ const dnaCore = {
          const attrs = rules.attrs!;  //example attrs: ['data-tag', ['', 'tag', '']]
          const inject = (key: DnaAttrName, parts: DnaAttrParts) => {
             // Example parts: 'J~~code.num~~' ==> ['J', 'code.num', '']
-            const field =     parts[1];
-            const core =      field === 0 ? index : field === 1 ? index + 1 : field === 2 ? data : dna.util.value(data, field);
+            const field = parts[1];
+            const core =
+               field === 0 ? index :
+               field === 1 ? index + 1 :
+               field === 2 ? data :
+               dna.util.value(data, field);
             const value =     [parts[0], core, parts[2]].join('');
             const formatted = rules.formatter ? rules.formatter(value, data) : value;
             elem.setAttribute(key, formatted);
@@ -1854,7 +1859,7 @@ const dnaCore = {
       const clone =          dna.dom.cloneState(<Element>template.elem.cloneNode(true));
       const name =           dna.compile.getRules(clone).template!;
       if (!containerState.dnaCountsMap)
-         containerState.dnaCountsMap = <DnaCountsMap>{};
+         containerState.dnaCountsMap = {};
       const countsMap = <DnaCountsMap>containerState.dnaCountsMap;
       const count =     countsMap[name];
       countsMap[name] = !count ? 1 : count + 1;
@@ -1924,7 +1929,7 @@ const dnaCore = {
       const array =        dna.compile.getRules(container).loop!;
       const subs =         dna.dom.filterByClass(container.children, array.name);
       const model =        <DnaDataObject>dna.getModel(container);
-      model[array.field] = <Json[]>subs.map(node => dna.getModel(node));
+      model[array.field] = subs.map(node => dna.getModel(node));
       return container;
       },
    remove<T>(clone: Element, callback?: DnaCallbackFn<T> | null): Element {
@@ -1934,7 +1939,7 @@ const dnaCore = {
          dna.core.updateModelArray(container);
       dna.placeholder.setup();
       if (callback)
-         callback(clone, <T>dna.getModel(clone));
+         callback(clone, dna.getModel(clone));
       return clone;
       },
    assert(ok: unknown, message: string, info: unknown): void {
@@ -2108,7 +2113,7 @@ const dna = {
          else if (inputElem.matches('input[type=radio]'))
             elem.checked = !!value;  //TOOD: if true, deselect other buttons in model
          else if (inputElem.matches('input, select, textarea'))
-            elem.value = String(<unknown>value);
+            elem.value = <string>value;
          const model = <DnaDataObject>dna.getModel(inputElem);
          model[<DnaFieldName>field] = value;
          };
@@ -2128,7 +2133,7 @@ const dna = {
       const containerState = dna.dom.state(container);
       const clones =         dna.dom.filterByClass(container.children, dna.name.clone, name);
       clones.forEach(update);
-      containerState.dnaCountsMap = containerState.dnaCountsMap || <DnaCountsMap>{};
+      containerState.dnaCountsMap = containerState.dnaCountsMap || {};
       (<DnaCountsMap>containerState.dnaCountsMap)[name] = clones.length;
       return clone;
       },
