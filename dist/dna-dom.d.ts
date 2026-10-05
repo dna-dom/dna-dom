@@ -1,4 +1,4 @@
-//! dna-dom v3.3.5 ~~ https://dna-dom.org ~~ MIT License
+//! dna-dom v3.3.6 ~~ https://dna-dom.org ~~ MIT License
 
 export type Json = string | number | boolean | null | undefined | JsonObject | Json[];
 export type JsonObject = {
@@ -481,7 +481,7 @@ declare const dna: {
         getArrayName(subClone: Element): string | null;
         updateModelArray(container: Element): Element;
         remove<T>(clone: Element, callback?: DnaCallbackFn<T> | null): Element;
-        assert(ok: unknown, message: string, info: unknown): void;
+        assertOk(ok: unknown, message: string, info: unknown): void;
         setup(): unknown;
     };
 };

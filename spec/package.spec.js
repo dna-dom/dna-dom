@@ -40,9 +40,10 @@ describe('The "dist" folder', () => {
 describe('Library version number', () => {
 
    it('follows semantic version formatting', () => {
-      const semVerPattern = /\d+[.]\d+[.]\d+/;
-      const actual =   { version: dna.version, valid: semVerPattern.test(dna.version) };
-      const expected = { version: dna.version, valid: true };
+      const version =  dna.version;
+      const semVer =   /\d+[.]\d+[.]\d+/;
+      const actual =   { version: version, valid: semVer.test(version) };
+      const expected = { version: version, valid: true };
       assertDeepStrictEqual(actual, expected);
       });
 

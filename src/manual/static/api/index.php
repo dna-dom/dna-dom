@@ -96,10 +96,10 @@
    <title>Folder: <?=$folderName?></title>
    <link rel=icon             href=<?=$gitHubRaw?>/icon.png>
    <link rel=apple-touch-icon href=<?=$gitHubRaw?>/icon.png>
-   <link rel=mask-icon        href=<?=$cdnBase?>/@fortawesome/fontawesome-free@7.2/svgs/solid/folder.svg color=darkgoldenrod>
+   <link rel=mask-icon        href=<?=$cdnBase?>/@fortawesome/fontawesome-free@7.3/svgs/solid/folder.svg color=darkgoldenrod>
    <link rel=preconnect       href=https://fonts.googleapis.com>
    <link rel=preconnect       href=https://fonts.gstatic.com crossorigin>
-   <link rel=stylesheet       href=<?=$cdnBase?>/@fortawesome/fontawesome-free@7.2/css/all.min.css>
+   <link rel=stylesheet       href=<?=$cdnBase?>/@fortawesome/fontawesome-free@7.3/css/all.min.css>
    <link rel=stylesheet       href=<?=$cdnBase?>/web-ignition@2.5/dist/reset.min.css>
    <link rel=stylesheet       href=<?=$cdnBase?>/dna-dom@3.3/dist/dna-dom.css>
    <style>

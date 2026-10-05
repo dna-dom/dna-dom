@@ -1,4 +1,4 @@
-//! dna-dom v3.3.5 ~~ https://dna-dom.org ~~ MIT License
+//! dna-dom v3.3.6 ~~ https://dna-dom.org ~~ MIT License
 
 const dnaName = {
     animating: 'dna-animating',
@@ -86,7 +86,7 @@ const dnaPageToken = {
 const dnaDom = {
     stateDepot: [],
     state(elem) {
-        dna.core.assert(dna.dom.isElem(elem), 'Invalid element for getting state', elem);
+        dna.core.assertOk(dna.dom.isElem(elem), 'Invalid element for getting state', elem);
         const data = elem.dataset;
         elem.classList.add('dna-state');
         if (!data.dnaState)
@@ -95,11 +95,11 @@ const dnaDom = {
     },
     componentState(elem) {
         const component = dna.ui.getComponent(elem);
-        dna.core.assert(component, 'Component not found for element', elem);
+        dna.core.assertOk(component, 'Component not found for element', elem);
         return dna.dom.state(component);
     },
     cloneState(clone) {
-        dna.core.assert(dna.dom.isElem(clone), 'Invalid element for copying state', clone);
+        dna.core.assertOk(dna.dom.isElem(clone), 'Invalid element for copying state', clone);
         const copy = (elem) => {
             const data = elem.dataset;
             const newState = { ...dna.dom.stateDepot[Number(data.dnaState)] };
@@ -111,7 +111,7 @@ const dnaDom = {
         return clone;
     },
     removeState(elem) {
-        dna.core.assert(dna.dom.isElem(elem), 'Invalid element for removing state', elem);
+        dna.core.assertOk(dna.dom.isElem(elem), 'Invalid element for removing state', elem);
         const data = elem.dataset;
         if (data.dnaState)
             dna.dom.stateDepot[Number(data.dnaState)] = {};
@@ -212,7 +212,7 @@ const dnaDom = {
     },
     insertAt(container, elem, index) {
         const inbounds = index >= 0 && index <= container.children.length;
-        dna.core.assert(inbounds, 'Invalid index to insert element', index);
+        dna.core.assertOk(inbounds, 'Invalid index to insert element', index);
         if (index === 0)
             container.prepend(elem);
         else
@@ -324,7 +324,7 @@ const dnaDom = {
         if (browserless && !options?.quiet)
             console.info(dna.util.timestampMsec(), `[dna-dom] ${infoMsg}`);
         const callFn = () => {
-            dna.core.assert(Date.now() - start < maxWait, errMsg(), callback);
+            dna.core.assertOk(Date.now() - start < maxWait, errMsg(), callback);
             globalThis.setTimeout(state() === 'loading' ? () => callFn() : callback);
         };
         callFn();
@@ -560,7 +560,7 @@ const dnaUi = {
             text: null,
         };
         const settings = { ...defaults, ...options };
-        dna.core.assert(dna.dom.isElem(elem), 'Invalid element for dna.ui.pulse()', elem);
+        dna.core.assertOk(dna.dom.isElem(elem), 'Invalid element for dna.ui.pulse()', elem);
         const data = elem.dataset;
         const pulseStart = String(Date.now());
         data.dnaPulseStart = pulseStart;
@@ -618,11 +618,11 @@ const dnaUtil = {
             typeof fn === 'function' ? fn :
                 typeof fn === 'string' ? dna.util.getFn(fn) :
                     null;
-        dna.core.assert(callback, 'Invalid callback function', fn);
+        dna.core.assertOk(callback, 'Invalid callback function', fn);
         return callback(params[0], ...params.slice(1));
     },
     getFn(name) {
-        dna.core.assert(!/[^\p{Letter}\d.]/u.test(name), 'Invalid function name', name);
+        dna.core.assertOk(!/[^\p{Letter}\d.]/u.test(name), 'Invalid function name', name);
         const fields = name.split('.');
         const tag = fields[0];
         const tagValue = globalThis[tag];
@@ -694,8 +694,9 @@ const dnaStr = {
         return kebabStr ? kebabStr.replace(/-(.)/g, hump) : '';
     },
     toKebab(camelStr) {
-        const dash = (word) => '-' + word.toLowerCase();
-        return camelStr ? camelStr.replace(/([A-Z]+)/g, dash).replace(/\s|^-/g, '') : '';
+        const addDash = (word) => '-' + word.toLowerCase();
+        const kebab = () => camelStr.trim().replace(/([A-Z]+)/g, addDash).replace(/[-\s]+/g, '-').replace(/^-/, '');
+        return camelStr ? kebab() : '';
     },
     removeWhitespace(text) {
         return text ? text.trim().replace(/\s/g, '') : '';
@@ -751,18 +752,18 @@ const dnaFormat = {
             year: (date) => String(date.getFullYear()),
         };
         const transformer = transformers[dna.str.toCamel(format)];
-        dna.core.assert(transformer, 'Unknown date format code', format);
+        dna.core.assertOk(transformer, 'Unknown date format code', format);
         const formatter = (msec) => transformer(new Date(msec));
         return formatter;
     },
     getNumberFormatter(format) {
-        dna.core.assert(/^#([.]#+)?$/.test(format), 'Unknown numeric format code', format);
+        dna.core.assertOk(/^#([.]#+)?$/.test(format), 'Unknown numeric format code', format);
         const digits = format === '#' ? 0 : format.length - 2;
         const numeric = { minimumFractionDigits: digits, maximumFractionDigits: digits };
         return new Intl.NumberFormat([], numeric).format;
     },
     getPercentFormatter(format) {
-        dna.core.assert(/^#([.]#+)?$/.test(format), 'Unknown percent format code', format);
+        dna.core.assertOk(/^#([.]#+)?$/.test(format), 'Unknown percent format code', format);
         const digits = format === '#' ? 0 : format.length - 2;
         const options = {
             style: 'percent',
@@ -846,7 +847,7 @@ const dnaPanels = {
             const menuNavName = 'dna-panels-' + String(dna.panels.nextMenuNav++);
             const setNavName = (elem) => elem.dataset.menuNav = menuNavName;
             const menu = panels.previousElementSibling;
-            dna.core.assert(menu?.classList.contains('dna-menu'), 'Menu not found for panels', panels);
+            dna.core.assertOk(menu?.classList.contains('dna-menu'), 'Menu not found for panels', panels);
             setNavName(menu);
             setNavName(panels);
             return menuNavName;
@@ -862,7 +863,7 @@ const dnaPanels = {
             const loc = hash && first.dataset.hash ? hashIndex() : savedIndex();
             dna.dom.addClass(panels.children, dna.name.panel);
             panels.classList.add(dna.name.panelsInitialized);
-            dna.core.assert(menu, 'Menu not found for panels', menuNavName);
+            dna.core.assertOk(menu, 'Menu not found for panels', menuNavName);
             menu.classList.add(dna.name.panelsInitialized);
             dna.dom.state(menu).dnaPanels = panels;
             if (!menu.getElementsByClassName(dna.name.menuItem).length)
@@ -1063,7 +1064,7 @@ const dnaCompile = {
     },
     template(name) {
         const elem = globalThis.document.getElementById(name);
-        dna.core.assert(elem, 'Template not found', name);
+        dna.core.assertOk(elem, 'Template not found', name);
         const initSubs = (elem) => dna.compile.setElemRule(elem, 'subs', []);
         const saveName = (elem) => {
             dna.dom.state(elem).dnaRules = { template: elem.id, subs: [] };
@@ -1170,7 +1171,7 @@ const dnaEvents = {
             const waitFor = data.waitFor?.split(',') ?? [];
             onLoad.waiting = Date.now() - onLoad.start;
             onLoad.checks++;
-            dna.core.assert(typeof fn === 'function' || !fn, 'Invalid data-on-load function', fnName);
+            dna.core.assertOk(typeof fn === 'function' || !fn, 'Invalid data-on-load function', fnName);
             const run = () => {
                 elem.classList.add(dna.name.executed);
                 dna.util.apply(fnName, [elem, dna.ui.getComponent(elem)]);
@@ -1309,7 +1310,7 @@ const dnaCore = {
                 elem.value = value;
         };
         const setProperty = (elem, property, state) => {
-            dna.core.assert(['checked', 'disabled'].includes(property), 'Invalid element property type', property);
+            dna.core.assertOk(['checked', 'disabled'].includes(property), 'Invalid element property type', property);
             if (property === 'checked')
                 elem.checked = state;
             else
@@ -1482,7 +1483,7 @@ const dnaCore = {
             dna.compile.getRules(subClone).array : null;
     },
     updateModelArray(container) {
-        dna.core.assert(container.classList.contains(dna.name.array), 'Invalid array container', container);
+        dna.core.assertOk(container.classList.contains(dna.name.array), 'Invalid array container', container);
         const array = dna.compile.getRules(container).loop;
         const subs = dna.dom.filterByClass(container.children, array.name);
         const model = dna.getModel(container);
@@ -1499,7 +1500,7 @@ const dnaCore = {
             callback(clone, dna.getModel(clone));
         return clone;
     },
-    assert(ok, message, info) {
+    assertOk(ok, message, info) {
         const quoteStr = (info) => typeof info === 'string' ? `"${info}"` : String(info);
         if (!ok)
             throw new Error(`[dna-dom] ${message} --> ${quoteStr(info)}`);
@@ -1518,7 +1519,7 @@ const dnaCore = {
     },
 };
 const dna = {
-    version: '3.3.5',
+    version: '3.3.6',
     clone(name, data, options) {
         const defaults = {
             callback: null,
@@ -1536,7 +1537,7 @@ const dna = {
         const template = dna.template.get(name);
         const makeCopies = options?.clones !== undefined;
         const missing = template.nested && !settings.container;
-        dna.core.assert(!missing, 'Container missing for nested template', name);
+        dna.core.assertOk(!missing, 'Container missing for nested template', name);
         if (settings.empty)
             dna.empty(name);
         const finish = (firstClone) => {
@@ -1674,10 +1675,10 @@ const dna = {
     getClone(elem, options) {
         const defaults = { main: false };
         const settings = { ...defaults, ...options };
-        dna.core.assert(dna.dom.isElem(elem), 'Invalid element', elem);
+        dna.core.assertOk(dna.dom.isElem(elem), 'Invalid element', elem);
         const mainCloneSelector = '.dna-clone:not(.dna-sub-clone)';
         const clone = elem.closest(settings.main ? mainCloneSelector : dna.selector.clone);
-        dna.core.assert(clone, 'Cannot find clone', elem);
+        dna.core.assertOk(clone, 'Cannot find clone', elem);
         return clone;
     },
     getClones(name) {
