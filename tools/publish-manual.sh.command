@@ -6,10 +6,10 @@
 #######################
 
 # To make this file runnable:
-#     $ chmod +x *.sh.command
+#     $ chmod +x tools/*.sh.command
 
 banner="Publish Manual --> dna-dom.org"
-projectHome=$(cd $(dirname $0)/../..; pwd)
+projectHome=$(realpath $0/../..)
 pkgInstallHome=$(dirname $(dirname $(which httpd)))
 apacheCfg=$pkgInstallHome/etc/httpd
 apacheLog=$pkgInstallHome/var/log/httpd/error_log
@@ -22,6 +22,7 @@ displayIntro() {
    echo
    echo $banner
    echo $(echo $banner | sed s/./=/g)
+   date
    pwd
    echo
    }
