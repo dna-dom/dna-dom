@@ -282,13 +282,13 @@ const dnaBrowser = {
 const dnaPageToken = {
    // A simple key/value store specific to the page (URL path) that is cleared out when the
    // user's browser session ends.
-   put: (key: string, value: Json): Json => {
+   put(key: string, value: Json): Json {
       // Example:
       //   dna.pageToken.put('favorite', 7);  //saves 7
       globalThis.sessionStorage[key + globalThis.location.pathname] = JSON.stringify(value);
       return value;
       },
-   get: (key: string, defaultValue: Json): Json => {
+   get(key: string, defaultValue: Json): Json {
       // Example:
       //   dna.pageToken.get('favorite', 0);  //returns 0 if not set
       const pageKey = key + globalThis.location.pathname;
